@@ -106,7 +106,7 @@ TIP: O Cloud Tiering oferece suporte aos volumes FlexVol e FlexGroup .
 
 Você precisa adicionar seu sistema ONTAP local ao Console antes de começar a hierarquizar dados frios.
 
-https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Aprenda como descobrir um cluster"^] .
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Aprenda como descobrir um cluster"^].
 
 
 
@@ -165,7 +165,7 @@ Certifique-se de que o agente tenha as conexões de rede necessárias.
 Depois de preparar seu ambiente, comece a hierarquizar os dados inativos do seu primeiro cluster.
 
 .O que você vai precisar
-* https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Um sistema local adicionado ao NetApp Console"^] .
+* https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Um sistema local adicionado ao NetApp Console"^].
 * O FQDN do servidor de armazenamento de objetos compatível com S3 e a porta que será usada para comunicações HTTPS.
 * Uma chave de acesso e uma chave secreta que tenham as permissões S3 necessárias.
 
@@ -181,7 +181,7 @@ image:screenshot_setup_tiering_onprem.png["Uma captura de tela que mostra a opç
 . *Selecionar provedor*: Selecione *Compatível com S3* e selecione *Continuar*.
 . Conclua as etapas nas páginas *Criar armazenamento de objetos*:
 +
-.. *Servidor*: Insira o FQDN do servidor de armazenamento de objetos compatível com S3, a porta que o ONTAP deve usar para comunicação HTTPS com o servidor e a chave de acesso e a chave secreta de uma conta que tenha as permissões S3 necessárias.
+.. *Servidor*: Insira o FQDN do servidor de armazenamento de objetos compatível com S3, a porta que o ONTAP deve usar para comunicação HTTPS com o servidor e a chave de acesso e a chave secreta para uma conta que tenha as permissões S3 necessárias.
 .. *Bucket*: Adicione um novo bucket ou selecione um bucket existente e selecione *Continuar*.
 .. *Bucket*: Adicione um novo bucket ou selecione um bucket existente e selecione *Continuar*.
 .. *Rede de cluster*: Selecione o espaço IP que o ONTAP deve usar para se conectar ao armazenamento de objetos e selecione *Continuar*.
@@ -207,7 +207,7 @@ image:screenshot_tiering_initial_volumes.png["Uma captura de tela que mostra com
 
 . Na caixa de diálogo _Política de níveis_, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento para os volumes selecionados e selecione *Aplicar*.
 +
-link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"] .
+link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"].
 
 +
 image:screenshot_tiering_initial_policy_settings.png["Uma captura de tela que mostra as configurações de política de camadas configuráveis."]
@@ -215,7 +215,7 @@ image:screenshot_tiering_initial_policy_settings.png["Uma captura de tela que mo
 
 
 .O que vem a seguir?
-link:task-licensing-cloud-tiering.html["Não se esqueça de assinar o serviço Cloud Tiering"] .
+link:task-licensing-cloud-tiering.html["Não se esqueça de assinar o serviço Cloud Tiering"].
 
 Você pode revisar informações sobre os dados ativos e inativos no cluster. link:task-managing-tiering.html["Saiba mais sobre como gerenciar suas configurações de níveis"] .
 

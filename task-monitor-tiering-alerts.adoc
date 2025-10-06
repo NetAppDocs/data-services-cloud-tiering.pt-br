@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-monitor-tiering-alerts.html 
 keywords: tiering, status, monitor, alert, notification, cloud tiering, bluexp 
-summary: Você pode visualizar o status dos alertas de níveis no Centro de Notificações do NetApp Console. 
+summary: Você pode visualizar o status dos alertas de níveis no Centro de Notificações do NetApp Console . 
 ---
 = Monitore o status dos alertas de níveis do NetApp Cloud Tiering
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: Você pode visualizar o status dos alertas de níveis no Centro de Noti
 
 
 [role="lead"]
-Você pode visualizar o status dos alertas de níveis do NetApp Cloud Tiering no Centro de Notificações do NetApp Console.
+Você pode visualizar o status dos alertas de níveis do NetApp Cloud Tiering no Centro de Notificações do NetApp Console .
 
 O Centro de Notificações rastreia o progresso dos incidentes de hierarquização para que você possa verificar se eles foram resolvidos ou não.  Você pode exibir as notificações selecionando (image:icon_bell.png["sino de notificação"] ) na barra de menu do Console.
 
@@ -26,4 +26,4 @@ Esta notificação é uma "Recomendação" para melhorar a eficiência do sistem
 
 O NetApp Console não envia um e-mail para esta notificação.
 
-https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html["Saiba mais sobre o Centro de Notificações"^] .
+https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html["Saiba mais sobre o Centro de Notificações"^].

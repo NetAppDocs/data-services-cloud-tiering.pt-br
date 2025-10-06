@@ -32,7 +32,7 @@ Se você não escolher outra classe de armazenamento, os dados permanecerão na 
 
 Ao configurar uma regra de ciclo de vida do Cloud Tiering, você não deve configurar nenhuma regra de ciclo de vida ao configurar o bucket na sua conta da AWS.
 
-https://aws.amazon.com/s3/storage-classes/["Saiba mais sobre as classes de armazenamento S3"^] .
+https://aws.amazon.com/s3/storage-classes/["Saiba mais sobre as classes de armazenamento S3"^].
 
 
 

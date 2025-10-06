@@ -27,7 +27,7 @@ Comece rapidamente seguindo estas etapas ou role para baixo até as seções res
 Você precisa do seguinte:
 
 [role="quick-margin-list"]
-* Um cluster ONTAP local de origem que executa o ONTAP 9.4 ou posterior que você adicionou ao NetApp Console e uma conexão por meio de uma porta especificada pelo usuário para o StorageGRID. https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Aprenda como descobrir um cluster"^] .
+* Um cluster ONTAP local de origem que executa o ONTAP 9.4 ou posterior que você adicionou ao NetApp Console e uma conexão por uma porta especificada pelo usuário para o StorageGRID. https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Aprenda como descobrir um cluster"^] .
 * StorageGRID 10.3 ou posterior com chaves de acesso da AWS que tenham permissões S3.
 * Um agente do Console instalado em suas instalações.
 * Rede para o agente que permite uma conexão HTTPS de saída para o cluster ONTAP , para o StorageGRID e para o serviço Cloud Tiering.
@@ -65,7 +65,7 @@ Plataformas ONTAP suportadas::
 
 --
 Versão ONTAP suportada:: ONTAP 9.4 ou posterior
-Licenciamento:: Uma licença de Cloud Tiering não é necessária na sua organização do NetApp Console, nem uma licença FabricPool é necessária no cluster ONTAP ao hierarquizar dados no StorageGRID.
+Licenciamento:: Uma licença de Cloud Tiering não é necessária na sua organização do NetApp Console , nem uma licença FabricPool é necessária no cluster ONTAP ao hierarquizar dados no StorageGRID.
 Requisitos de rede do cluster::
 +
 --
@@ -96,7 +96,7 @@ NOTE: O Cloud Tiering oferece suporte a volumes FlexGroup , a partir do ONTAP 9.
 
 Você precisa adicionar um sistema ONTAP local ao NetApp Console antes de começar a hierarquizar dados frios.
 
-https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Aprenda como descobrir um cluster"^] .
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Aprenda como descobrir um cluster"^].
 
 
 
@@ -159,7 +159,7 @@ Certifique-se de que o agente tenha as conexões de rede necessárias.
 Depois de preparar seu ambiente, comece a hierarquizar os dados inativos do seu primeiro cluster.
 
 .O que você vai precisar
-* https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Um sistema local adicionado ao NetApp Console"^] .
+* https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Um sistema local adicionado ao NetApp Console"^].
 * O FQDN do nó do gateway StorageGRID e a porta que será usada para comunicações HTTPS.
 * Uma chave de acesso da AWS que tenha as permissões S3 necessárias.
 
@@ -210,7 +210,7 @@ image:screenshot_tiering_initial_volumes.png["Uma captura de tela que mostra com
 . Na caixa de diálogo _Política de níveis_, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento para os volumes selecionados e selecione *Aplicar*.
 . Na caixa de diálogo _Política de níveis_, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento para os volumes selecionados e selecione *Aplicar*.
 +
-link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"] .
+link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"].
 
 +
 image:screenshot_tiering_initial_policy_settings.png["Uma captura de tela que mostra as configurações de política de camadas configuráveis."]

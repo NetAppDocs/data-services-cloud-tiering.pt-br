@@ -30,7 +30,7 @@ O BlueXP tiering foi renomeado para NetApp Cloud Tiering.
 
 === BlueXP agora é NetApp Console
 
-O NetApp Console, criado com base na base aprimorada e reestruturada do BlueXP , fornece gerenciamento centralizado do armazenamento NetApp e do NetApp Data Services em ambientes locais e na nuvem em nível empresarial, fornecendo insights em tempo real, fluxos de trabalho mais rápidos e administração simplificada, de forma altamente segura e compatível.
+O NetApp Console, criado com base na base aprimorada e reestruturada do BlueXP , fornece gerenciamento centralizado do armazenamento NetApp e do NetApp Data Services em ambientes locais e na nuvem em nível empresarial, fornecendo insights em tempo real, fluxos de trabalho mais rápidos e administração simplificada, que é altamente segura e compatível.
 
 Para obter detalhes sobre o que mudou, consulte olink:https://docs.netapp.com/us-en/bluexp-relnotes/index.html["Notas de versão do NetApp Console"] .
 
@@ -58,7 +58,7 @@ Se você estiver usando vários Conectores para gerenciar todos os sistemas de a
 
 === Ajuste a largura de banda para transferir dados inativos
 
-Quando você ativa o Cloud Tiering, o ONTAP pode usar uma quantidade ilimitada de largura de banda de rede para transferir os dados inativos dos volumes no cluster para o armazenamento de objetos.  Se você perceber que o tráfego em camadas está afetando as cargas de trabalho normais dos usuários, você pode limitar a quantidade de largura de banda que pode ser usada durante a transferência. https://docs.netapp.com/us-en/bluexp-tiering/task-managing-tiering.html#changing-the-network-bandwidth-available-to-upload-inactive-data-to-object-storage["Saber mais"] .
+Quando você ativa o Cloud Tiering, o ONTAP pode usar uma quantidade ilimitada de largura de banda de rede para transferir os dados inativos dos volumes no cluster para o armazenamento de objetos. Se você perceber que o tráfego em camadas está afetando as cargas de trabalho normais dos usuários, você pode limitar a quantidade de largura de banda que pode ser usada durante a transferência. https://docs.netapp.com/us-en/bluexp-tiering/task-managing-tiering.html#changing-the-network-bandwidth-available-to-upload-inactive-data-to-object-storage["Saber mais"] .
 
 
 
@@ -66,7 +66,7 @@ Quando você ativa o Cloud Tiering, o ONTAP pode usar uma quantidade ilimitada d
 
 O evento de hierarquização "Adicionar dados adicionais do cluster <nome> ao armazenamento de objetos para aumentar sua eficiência de armazenamento" agora aparece como uma notificação quando um cluster está hierarquizando menos de 20% de seus dados inativos, incluindo clusters que não estão hierarquizando nenhum dado.
 
-Esta notificação é uma "Recomendação" para ajudar a tornar seus sistemas mais eficientes e economizar em custos de armazenamento.  Ele fornece um link para o https://bluexp.netapp.com/cloud-tiering-service-tco["Calculadora de custo total de propriedade e economia de Cloud Tiering"^] para ajudar você a calcular sua economia de custos.
+Esta notificação é uma "Recomendação" para ajudar a tornar seus sistemas mais eficientes e economizar em custos de armazenamento. Ele fornece um link para o https://bluexp.netapp.com/cloud-tiering-service-tco["Calculadora de custo total de propriedade e economia de Cloud Tiering"^] para ajudar você a calcular sua economia de custos.
 
 
 
@@ -136,7 +136,7 @@ Se o destino de camadas do Azure Blob, Google Cloud Storage ou StorageGRID exist
 
 Em versões anteriores, era muito demorado fornecer essa maneira segura de conectar seu cluster a um bucket S3 por meio de um endpoint VPC.  Agora você pode seguir os passos pré-requisitos para https://docs.netapp.com/us-en/bluexp-tiering/task-tiering-onprem-aws.html#configure-your-system-for-a-private-connection-using-a-vpc-endpoint-interface["configure seu sistema para uma conexão privada usando uma interface de endpoint VPC"] e então você pode selecionar o PrivateLink durante o assistente de configuração de camadas na página Rede.
 
-https://docs.netapp.com/us-en/bluexp-tiering/task-tiering-onprem-aws.html["Revise os requisitos e as etapas para hierarquizar dados inativos no Amazon S3"] .
+https://docs.netapp.com/us-en/bluexp-tiering/task-tiering-onprem-aws.html["Revise os requisitos e as etapas para hierarquizar dados inativos no Amazon S3"].
 
 
 

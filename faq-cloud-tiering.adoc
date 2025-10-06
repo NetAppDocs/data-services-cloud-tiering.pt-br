@@ -82,7 +82,7 @@ A hierarquização da nuvem é habilitada no nível do volume associando uma pol
 
 === Como o Cloud Tiering determina quais blocos serão hierarquizados na nuvem?
 
-A política de hierarquização associada ao volume é o mecanismo que controla quais blocos são hierarquizados e quando.  A política define o tipo de blocos de dados (instantâneos, dados do usuário ou ambos) e o período de resfriamento. Verlink:concept-cloud-tiering.html#volume-tiering-policies["Políticas de níveis de volume"] para mais detalhes.
+A política de hierarquização associada ao volume é o mecanismo que controla quais blocos são hierarquizados e quando.  A política define o tipo de blocos de dados (instantâneos, dados do usuário ou ambos) e o período de resfriamento.  Verlink:concept-cloud-tiering.html#volume-tiering-policies["Políticas de níveis de volume"] para mais detalhes.
 
 
 
@@ -118,7 +118,7 @@ Ao hierarquizar dados frios na nuvem pública:
 * Para a assinatura anual (BYOL) baseada em prazo: a partir de US$ 0,033 por GB/mês.
 
 
-https://bluexp.netapp.com/pricing["Veja detalhes de preços"] .
+https://bluexp.netapp.com/pricing["Veja detalhes de preços"].
 
 Ao hierarquizar dados frios em um sistema NetApp StorageGRID (nuvem privada), não há custo.
 
@@ -134,7 +134,7 @@ Sim. O Cloud Tiering permite que você use uma licença BYOL, uma assinatura PAY
 
 Se você atingir o limite de capacidade BYOL ou se sua licença BYOL expirar, a hierarquização de novos dados frios será interrompida.  Todos os dados em camadas anteriores permanecem acessíveis, o que significa que você pode recuperar e usar esses dados.  Quando recuperados, esses dados são movidos de volta para a camada de desempenho da nuvem.
 
-No entanto, se você tiver uma assinatura do marketplace PAYGO para o _BlueXP - Implantar e gerenciar serviços de dados em nuvem_, os novos dados frios continuarão sendo classificados em camadas no armazenamento de objetos e você pagará por essas taxas por uso.
+No entanto, se você tiver uma assinatura do marketplace PAYGO para o _BlueXP - Implantar e gerenciar serviços de dados em nuvem_, os novos dados frios continuarão sendo categorizados no armazenamento de objetos e você pagará por essas taxas por uso.
 
 
 
@@ -264,7 +264,7 @@ Sim, você pode. Ao configurar a hierarquização de dados, você tem a opção 
 
 === Quais classes de armazenamento S3 são suportadas?
 
-O Cloud Tiering oferece suporte ao armazenamento em camadas de dados para as classes de armazenamento _Standard_, _Standard-Infrequent Access_, _One Zone-Infrequent Access_, _Intelligent Tiering_ e _Glacier Instant Retrieval_. Verlink:reference-aws-support.html["Classes de armazenamento S3 suportadas"] para mais detalhes.
+O Cloud Tiering oferece suporte ao armazenamento em camadas de dados para as classes de armazenamento _Standard_, _Standard-Infrequent Access_, _One Zone-Infrequent Access_, _Intelligent Tiering_ e _Glacier Instant Retrieval_.  Verlink:reference-aws-support.html["Classes de armazenamento S3 suportadas"] para mais detalhes.
 
 
 
@@ -282,13 +282,13 @@ Sim, a configuração do armazenamento de objetos compatível com S3 por meio da
 
 === Quais níveis de acesso do Azure Blob são suportados?
 
-O Cloud Tiering oferece suporte ao hierarquização de dados para os níveis de acesso _Hot_ ou _Cool_ para seus dados inativos. Verlink:reference-azure-support.html["Camadas de acesso do Azure Blob com suporte"] para mais detalhes.
+O Cloud Tiering oferece suporte ao hierarquização de dados para os níveis de acesso _Hot_ ou _Cool_ para seus dados inativos.  Verlink:reference-azure-support.html["Camadas de acesso do Azure Blob com suporte"] para mais detalhes.
 
 
 
 === Quais classes de armazenamento são suportadas pelo Google Cloud Storage?
 
-O Cloud Tiering oferece suporte ao armazenamento em camadas de dados para as classes de armazenamento _Standard_, _Nearline_, _Coldline_ e _Archive_. Verlink:reference-google-support.html["Classes de armazenamento do Google Cloud compatíveis"] para mais detalhes.
+O Cloud Tiering oferece suporte ao armazenamento em camadas de dados para as classes de armazenamento _Standard_, _Nearline_, _Coldline_ e _Archive_.  Verlink:reference-google-support.html["Classes de armazenamento do Google Cloud compatíveis"] para mais detalhes.
 
 
 
@@ -356,7 +356,7 @@ As perguntas a seguir estão relacionadas ao agente do Console.
 
 === O que é o agente do Console?
 
-O agente do Console é um software executado em uma instância de computação na sua conta de nuvem ou no local, que permite que o NetApp Console gerencie com segurança os recursos da nuvem.  Para usar o serviço Cloud Tiering, você deve implantar um agente.
+O agente do Console é um software executado em uma instância de computação na sua conta de nuvem ou no local, que permite que o NetApp Console gerencie com segurança os recursos da nuvem. Para usar o serviço Cloud Tiering, você deve implantar um agente.
 
 
 
@@ -402,7 +402,7 @@ Existem quatro políticas de níveis:
 * Todos os dados do usuário (Todos): classifica todos os dados como frios; movendo imediatamente todo o volume para o armazenamento de objetos.
 
 
-link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis"] .
+link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis"].
 
 
 
@@ -527,9 +527,9 @@ Sim. Um LIF intercluster deve ser configurado em uma porta Ethernet, em cada nó
 
 === Quais permissões são necessárias?
 
-* link:task-tiering-onprem-aws.html#set-up-s3-permissions["Para a Amazon, são necessárias permissões para gerenciar o bucket S3"] .
+* link:task-tiering-onprem-aws.html#set-up-s3-permissions["Para a Amazon, são necessárias permissões para gerenciar o bucket S3"].
 * Para o Azure, nenhuma permissão extra é necessária além das permissões que você precisa fornecer ao NetApp Console.
-* link:task-tiering-onprem-gcp.html#preparing-google-cloud-storage["Para o Google Cloud, as permissões de administrador de armazenamento são necessárias para uma conta de serviço que tenha chaves de acesso ao armazenamento"] .
-* link:task-tiering-onprem-storagegrid.html#preparing-storagegrid["Para StorageGRID, são necessárias permissões S3"] .
-* link:task-tiering-onprem-s3-compat.html#preparing-s3-compatible-object-storage["Para armazenamento de objetos compatível com S3, são necessárias permissões S3"] .
+* link:task-tiering-onprem-gcp.html#preparing-google-cloud-storage["Para o Google Cloud, as permissões de administrador de armazenamento são necessárias para uma conta de serviço que tenha chaves de acesso ao armazenamento"].
+* link:task-tiering-onprem-storagegrid.html#preparing-storagegrid["Para StorageGRID, são necessárias permissões S3"].
+* link:task-tiering-onprem-s3-compat.html#preparing-s3-compatible-object-storage["Para armazenamento de objetos compatível com S3, são necessárias permissões S3"].
 

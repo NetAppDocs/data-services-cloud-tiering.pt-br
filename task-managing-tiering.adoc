@@ -71,7 +71,7 @@ image:screenshot_tiering_tier_volumes.png["Uma captura de tela que mostra como s
 . Na caixa de diálogo _Política de níveis_, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento para os volumes selecionados e selecione *Aplicar*.
 . Na caixa de diálogo _Política de níveis_, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento para os volumes selecionados e selecione *Aplicar*.
 +
-link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"] .
+link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"].
 
 +
 image:screenshot_tiering_policy_settings.png["Uma captura de tela que mostra as configurações de política de camadas configuráveis."]
@@ -94,7 +94,7 @@ Alterar a política de hierarquização de um volume altera a maneira como o ONT
 . Clique na linha de um volume, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento e selecione *Aplicar*.
 . Clique na linha de um volume, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento e selecione *Aplicar*.
 +
-link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"] .
+link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"].
 
 +
 image:screenshot_tiering_policy_settings.png["Uma captura de tela que mostra as configurações de política de camadas configuráveis."]
@@ -284,5 +284,5 @@ image:screenshot_tiering_search for_cluster.png["Uma captura de tela mostrando c
 +
 O Cloud Tiering exibe o nome do agente se ele conseguir encontrar o cluster.
 
-. https://docs.netapp.com/us-en/bluexp-setup-admin/task-manage-multiple-connectors.html#switch-between-connectors["Mude para o agente e configure a hierarquização para o cluster"^] .
+. https://docs.netapp.com/us-en/bluexp-setup-admin/task-manage-multiple-connectors.html#switch-between-connectors["Mude para o agente e configure a hierarquização para o cluster"^].
 

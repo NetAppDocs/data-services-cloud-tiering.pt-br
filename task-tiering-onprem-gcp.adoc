@@ -107,7 +107,7 @@ NOTE: O Cloud Tiering oferece suporte a volumes FlexGroup .  A configuração fu
 
 Você precisa adicionar seu sistema ONTAP local ao NetApp Console antes de começar a hierarquizar dados frios.
 
-https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Aprenda como descobrir um cluster"^] .
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Aprenda como descobrir um cluster"^].
 
 
 
@@ -150,7 +150,7 @@ Os buckets do Cloud Storage devem estar em umlink:reference-google-support.html#
 NOTE: Se você estiver planejando configurar o Cloud Tiering para usar classes de armazenamento de menor custo para as quais seus dados em camadas farão a transição após um determinado número de dias, não selecione nenhuma regra de ciclo de vida ao configurar o bucket na sua conta do GCP.  O Cloud Tiering gerencia as transições do ciclo de vida.
 
 .Passos
-. https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["Crie uma conta de serviço que tenha a função de administrador de armazenamento predefinida"^] .
+. https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["Crie uma conta de serviço que tenha a função de administrador de armazenamento predefinida"^].
 . Vá para https://console.cloud.google.com/storage/settings["Configurações de armazenamento do GCP"^] e crie chaves de acesso para a conta de serviço:
 +
 .. Selecione um projeto e selecione *Interoperabilidade*.  Se você ainda não tiver feito isso, selecione *Habilitar acesso de interoperabilidade*.
@@ -171,7 +171,7 @@ Você precisará inserir as chaves mais tarde, ao configurar o Cloud Tiering.
 Depois de preparar seu ambiente do Google Cloud, comece a hierarquizar os dados inativos do seu primeiro cluster.
 
 .O que você vai precisar
-* https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Um sistema local adicionado ao NetApp Console"^] .
+* https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Um sistema local adicionado ao NetApp Console"^].
 * Chaves de acesso de armazenamento para uma conta de serviço que tem a função de administrador de armazenamento.
 
 
@@ -225,7 +225,7 @@ image:screenshot_tiering_initial_volumes.png["Uma captura de tela que mostra com
 
 . Na caixa de diálogo _Política de níveis_, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento para os volumes selecionados e selecione *Aplicar*.
 +
-link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"] .
+link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"].
 
 +
 image:screenshot_tiering_initial_policy_settings.png["Uma captura de tela que mostra as configurações de política de camadas configuráveis."]
@@ -236,7 +236,7 @@ image:screenshot_tiering_initial_policy_settings.png["Uma captura de tela que mo
 Você configurou com sucesso o armazenamento de dados em camadas de volumes no cluster para o armazenamento de objetos do Google Cloud.
 
 .O que vem a seguir?
-link:task-licensing-cloud-tiering.html["Não se esqueça de assinar o serviço Cloud Tiering"] .
+link:task-licensing-cloud-tiering.html["Não se esqueça de assinar o serviço Cloud Tiering"].
 
 Você pode revisar informações sobre os dados ativos e inativos no cluster. link:task-managing-tiering.html["Saiba mais sobre como gerenciar suas configurações de níveis"] .
 

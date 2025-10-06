@@ -48,7 +48,7 @@ Descubra seu cluster ONTAP no NetApp Console, verifique se o cluster atende aos 
 Configure permissões para o agente criar e gerenciar o bucket S3.  Você também precisará configurar permissões para o cluster ONTAP local para que ele possa ler e gravar dados no bucket S3.
 
 [role="quick-margin-para"]
-<<Configurar permissões do S3,Veja como configurar permissões para o agente e para seu cluster local.>>
+<<Configurar permissões S3,Veja como configurar permissões para o agente e para seu cluster local.>>
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]Habilitar o Cloud Tiering no sistema
 [role="quick-margin-para"]
@@ -173,7 +173,7 @@ Se você estiver usando um IPspace diferente do "Padrão", talvez seja necessár
 Todos os LIFs intercluster dentro do IPspace devem ter acesso ao armazenamento de objetos.  Se você não puder configurar isso para o IPspace atual, será necessário criar um IPspace dedicado onde todos os LIFs intercluster tenham acesso ao armazenamento de objetos.
 
 * Se você estiver usando um endpoint de interface VPC privada na AWS para a conexão S3, para que o HTTPS/443 seja usado, você precisará carregar o certificado de endpoint S3 no cluster ONTAP .<<Configure seu sistema para uma conexão privada usando uma interface de endpoint VPC,Veja como configurar uma interface de endpoint VPC e carregar o certificado S3.>>
-* <<Configurar permissões do S3,Certifique-se de que seu cluster ONTAP tenha permissões para acessar o bucket S3.>>
+* <<Configurar permissões S3,Certifique-se de que seu cluster ONTAP tenha permissões para acessar o bucket S3.>>
 
 
 
@@ -182,7 +182,7 @@ Todos os LIFs intercluster dentro do IPspace devem ter acesso ao armazenamento d
 
 Você precisa descobrir seu cluster ONTAP local no NetApp Console antes de começar a hierarquizar dados frios no armazenamento de objetos.  Você precisará saber o endereço IP de gerenciamento do cluster e a senha da conta de usuário administrador para adicionar o cluster.
 
-https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Aprenda como descobrir um cluster"^] .
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Aprenda como descobrir um cluster"^].
 
 
 
@@ -197,7 +197,7 @@ NOTE: Se você estiver planejando configurar o Cloud Tiering para usar uma class
 
 
 
-=== Configurar permissões do S3
+=== Configurar permissões S3
 
 Você precisará configurar dois conjuntos de permissões:
 
@@ -208,10 +208,10 @@ Você precisará configurar dois conjuntos de permissões:
 .Passos
 . *Permissões do agente do console*:
 +
-** Confirme que https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html#iam-policies["essas permissões S3"^] fazem parte da função do IAM que fornece permissões ao agente.  Eles deveriam ter sido incluídos por padrão quando você implantou o agente pela primeira vez.  Caso contrário, você precisará adicionar quaisquer permissões ausentes. Veja o https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html["Documentação da AWS: Editando políticas do IAM"^] para obter instruções.
+** Confirme que https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html#iam-policies["essas permissões S3"^] fazem parte da função do IAM que fornece permissões ao agente.  Eles deveriam ter sido incluídos por padrão quando você implantou o agente pela primeira vez.  Caso contrário, você precisará adicionar quaisquer permissões ausentes.  Veja o https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html["Documentação da AWS: Editando políticas do IAM"^] para obter instruções.
 ** O bucket padrão criado pelo Cloud Tiering tem o prefixo "fabric-pool".  Se quiser usar um prefixo diferente para seu bucket, você precisará personalizar as permissões com o nome que deseja usar.  Nas permissões do S3 você verá uma linha `"Resource": ["arn:aws:s3:::fabric-pool*"]` .  Você precisará alterar "fabric-pool" para o prefixo que deseja usar.  Por exemplo, se você quiser usar "tiering-1" como prefixo para seus buckets, você alterará esta linha para `"Resource": ["arn:aws:s3:::tiering-1*"]` .
 +
-Se quiser usar um prefixo diferente para os buckets que serão usados ​​para clusters adicionais nesta mesma organização do NetApp Console, você poderá adicionar outra linha com o prefixo para outros buckets. Por exemplo:
+Se quiser usar um prefixo diferente para os buckets que serão usados ​​para clusters adicionais nesta mesma organização do NetApp Console , você poderá adicionar outra linha com o prefixo para outros buckets. Por exemplo:
 
 +
 `"Resource": ["arn:aws:s3:::tiering-1*"]`
@@ -258,7 +258,7 @@ Se você planeja usar uma conexão de internet pública padrão, todas as permis
 Se você quiser ter uma conexão mais segura pela internet do seu data center local para a VPC, há uma opção para selecionar uma conexão AWS PrivateLink no assistente de ativação de camadas.  É necessário se você planeja usar uma VPN ou AWS Direct Connect para conectar seu sistema local por meio de uma interface de endpoint VPC que usa um endereço IP privado.  Este tipo de conexão é mostrado na<<Diagramas de rede para opções de conexão,segundo diagrama acima>> .  Se você quiser ter uma conexão mais segura pela internet do seu data center local para a VPC, há uma opção para selecionar uma conexão AWS PrivateLink no assistente de ativação de camadas.  É necessário se você planeja usar uma VPN ou AWS Direct Connect para conectar seu sistema local por meio de uma interface de endpoint VPC que usa um endereço IP privado.  Este tipo de conexão é mostrado na<<Diagramas de rede para opções de conexão,segundo diagrama acima>> .
 
 . Crie uma configuração de endpoint de interface usando o Amazon VPC Console ou a linha de comando. https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html["Veja detalhes sobre o uso do AWS PrivateLink para Amazon S3"^] .
-. Modifique a configuração do grupo de segurança associado ao agente.  Você deve alterar a política para "Personalizada" (de "Acesso Total") e deve<<Configurar permissões do S3,adicione as permissões necessárias do agente S3>> como mostrado anteriormente.
+. Modifique a configuração do grupo de segurança associado ao agente.  Você deve alterar a política para "Personalizada" (de "Acesso Total") e deve<<Configurar permissões S3,adicione as permissões necessárias do agente S3>> como mostrado anteriormente.
 +
 image:screenshot_tiering_aws_sec_group.png["Uma captura de tela do grupo de segurança da AWS associado ao agente."]
 
@@ -308,7 +308,7 @@ Please enter Certificate: Press <Enter> when done
 Depois de preparar seu ambiente AWS, comece a hierarquizar dados inativos do seu primeiro cluster.
 
 .O que você vai precisar
-* https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Um sistema gerenciado no local no Console"^] .
+* https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Um sistema gerenciado no local no Console"^].
 * Uma chave de acesso da AWS para um usuário do IAM que tenha as permissões S3 necessárias.
 
 
@@ -335,7 +335,7 @@ image:screenshot_tiering_aws_s3_bucket.png["Uma captura de tela mostrando os dad
 Ao usar um agente local, você deve inserir o ID da conta da AWS que fornece acesso ao bucket S3 existente ou ao novo bucket S3 que será criado.
 
 +
-O prefixo _fabric-pool_ é usado por padrão porque a política do IAM para o agente permite que a instância execute ações do S3 em buckets nomeados com esse prefixo exato.  Por exemplo, você pode nomear o bucket S3 _fabric-pool-AFF1_, onde AFF1 é o nome do cluster.  Você também pode definir o prefixo para os buckets usados para hierarquização.  Ver<<Configurar permissões do S3,configurando permissões S3>> para garantir que você tenha permissões da AWS que reconheçam qualquer prefixo personalizado que você planeja usar.
+O prefixo _fabric-pool_ é usado por padrão porque a política do IAM para o agente permite que a instância execute ações do S3 em buckets nomeados com esse prefixo exato.  Por exemplo, você pode nomear o bucket S3 _fabric-pool-AFF1_, onde AFF1 é o nome do cluster.  Você também pode definir o prefixo para os buckets usados para hierarquização.  Ver<<Configurar permissões S3,configurando permissões S3>> para garantir que você tenha permissões da AWS que reconheçam qualquer prefixo personalizado que você planeja usar.
 
 .. *Classe de armazenamento*: o Cloud Tiering gerencia as transições do ciclo de vida dos seus dados em camadas.  Os dados começam na classe _Padrão_, mas você pode criar uma regra para aplicar uma classe de armazenamento diferente aos dados após um determinado número de dias.
 +
@@ -378,7 +378,7 @@ image:screenshot_tiering_initial_volumes.png["Uma captura de tela que mostra com
 
 . Na caixa de diálogo _Política de níveis_, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento para os volumes selecionados e selecione *Aplicar*.
 +
-link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"] .
+link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"].
 
 +
 image:screenshot_tiering_initial_policy_settings.png["Uma captura de tela que mostra as configurações de política de camadas configuráveis."]
@@ -389,7 +389,7 @@ image:screenshot_tiering_initial_policy_settings.png["Uma captura de tela que mo
 Você configurou com sucesso a hierarquização de dados de volumes no cluster para o armazenamento de objetos S3.
 
 .O que vem a seguir?
-link:task-licensing-cloud-tiering.html["Não se esqueça de assinar o serviço Cloud Tiering"] .
+link:task-licensing-cloud-tiering.html["Não se esqueça de assinar o serviço Cloud Tiering"].
 
 Você pode revisar informações sobre os dados ativos e inativos no cluster. link:task-managing-tiering.html["Saiba mais sobre como gerenciar suas configurações de níveis"] .
 

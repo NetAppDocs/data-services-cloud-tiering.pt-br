@@ -26,7 +26,7 @@ Se você não escolher o nível de acesso _Cool_, os dados permanecerão no nív
 
 Ao configurar uma regra de ciclo de vida do Cloud Tiering, você não deve configurar nenhuma regra de ciclo de vida ao configurar o contêiner na sua conta do Azure.
 
-https://docs.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview["Saiba mais sobre as camadas de acesso do Azure Blob"^] .
+https://docs.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview["Saiba mais sobre as camadas de acesso do Azure Blob"^].
 
 
 

@@ -19,11 +19,11 @@ Um teste gratuito de 30 dias do NetApp Cloud Tiering começa quando você config
 Algumas notas antes de continuar lendo:
 
 * Se você já assinou o Cloud Tiering (PAYGO) no marketplace do seu provedor de nuvem, você também estará automaticamente inscrito no Cloud Tiering para sistemas ONTAP locais.  Você verá uma assinatura ativa na aba Cloud Tiering *Painel local*.  Você não precisará assinar novamente.  Você verá uma assinatura ativa no NetApp Console.
-* A licença BYOL Cloud Tiering (anteriormente conhecida como licença "Cloud Tiering") é uma licença _flutuante_ que você pode usar em vários clusters ONTAP locais na sua organização do NetApp Console.  Isso é diferente (e muito mais fácil) do que no passado, quando você comprava uma licença _FabricPool_ para cada cluster.
+* A licença BYOL Cloud Tiering (anteriormente conhecida como licença "Cloud Tiering") é uma licença _flutuante_ que você pode usar em vários clusters ONTAP locais na sua organização do NetApp Console .  Isso é diferente (e muito mais fácil) do que no passado, quando você comprava uma licença _FabricPool_ para cada cluster.
 * Não há custos ao hierarquizar dados no StorageGRID, portanto, não é necessária uma licença BYOL nem um registro PAYGO.  Esses dados em camadas não são contabilizados na capacidade adquirida na sua licença.
 
 
-link:concept-cloud-tiering.html#pricing-and-licenses["Saiba mais sobre como funciona o licenciamento para Cloud Tiering"] .
+link:concept-cloud-tiering.html#pricing-and-licenses["Saiba mais sobre como funciona o licenciamento para Cloud Tiering"].
 
 
 
@@ -35,7 +35,7 @@ Se o seu teste gratuito terminar e você não tiver assinado ou adicionado uma l
 
 
 
-== Use uma assinatura PAYGO de Cloud Tiering
+== Use uma assinatura PAYGO do Cloud Tiering
 
 Assinaturas pagas conforme o uso do marketplace do seu provedor de nuvem permitem que você licencie o uso de sistemas Cloud Volumes ONTAP e muitos serviços de dados em nuvem, como o Cloud Tiering.
 
@@ -117,7 +117,7 @@ Atualmente, contratos anuais não são suportados ao migrar para o Google Cloud.
 
 == Use uma licença BYOL de Cloud Tiering
 
-As licenças "traga sua própria" da NetApp oferecem prazos de 1, 2 ou 3 anos.  A licença BYOL *Cloud Tiering* (anteriormente conhecida como licença "Cloud Tiering") é uma licença _flutuante_ que você pode usar em vários clusters ONTAP locais na sua organização do NetApp Console.  A capacidade total de camadas definida na sua licença Cloud Tiering é compartilhada entre *todos* os seus clusters locais, facilitando o licenciamento inicial e a renovação.  A capacidade mínima para uma licença BYOL em camadas começa em 10 TiB.
+As licenças "traga sua própria" da NetApp oferecem prazos de 1, 2 ou 3 anos.  A licença BYOL *Cloud Tiering* (anteriormente conhecida como licença "Cloud Tiering") é uma licença _flutuante_ que você pode usar em vários clusters ONTAP locais na sua organização do NetApp Console .  A capacidade total de camadas definida na sua licença Cloud Tiering é compartilhada entre *todos* os seus clusters locais, facilitando o licenciamento inicial e a renovação.  A capacidade mínima para uma licença BYOL em camadas começa em 10 TiB.
 
 Se você não tiver uma licença do Cloud Tiering, entre em contato conosco para adquirir uma:
 
@@ -159,7 +159,7 @@ Aqui estão algumas coisas que você precisa saber sobre as duas licenças:
 | Ele está registrado no NetApp Console. | Ele é aplicado a clusters individuais usando o System Manager ou o ONTAP CLI. 
 
 
-| A configuração e o gerenciamento de camadas são feitos por meio do serviço Cloud Tiering no NetApp Console. | A configuração e o gerenciamento de camadas são feitos por meio do System Manager ou do ONTAP CLI. 
+| A configuração e o gerenciamento de níveis são feitos por meio do serviço Cloud Tiering no NetApp Console. | A configuração e o gerenciamento de camadas são feitos por meio do System Manager ou do ONTAP CLI. 
 
 
 | Depois que a divisão em camadas estiver configurada, você poderá usar o serviço de divisão em camadas sem licença por 30 dias usando o teste gratuito. | Depois de configurado, você pode disponibilizar os primeiros 10 TB de dados gratuitamente. 

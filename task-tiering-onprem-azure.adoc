@@ -106,7 +106,7 @@ NOTE: O Cloud Tiering oferece suporte a volumes FlexGroup , a partir do ONTAP 9.
 
 Você precisa adicionar um sistema ONTAP local ao NetApp Console antes de começar a hierarquizar dados frios.
 
-https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Aprenda como descobrir um cluster"^] .
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Aprenda como descobrir um cluster"^].
 
 
 
@@ -166,7 +166,7 @@ NOTE: Se você estiver planejando configurar o Cloud Tiering para usar uma camad
 Depois de preparar seu ambiente do Azure, comece a hierarquizar os dados inativos do seu primeiro cluster.
 
 .O que você vai precisar
-https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Um sistema ONTAP local para o NetApp Console"^] .
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Um sistema ONTAP local para o NetApp Console"^].
 
 .Passos
 . Selecione o sistema ONTAP local.
@@ -226,7 +226,7 @@ image:screenshot_tiering_initial_volumes.png["Uma captura de tela que mostra com
 
 . Na caixa de diálogo _Política de níveis_, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento para os volumes selecionados e selecione *Aplicar*.
 +
-link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"] .
+link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"].
 
 +
 image:screenshot_tiering_initial_policy_settings.png["Uma captura de tela que mostra as configurações de política de camadas configuráveis."]
@@ -237,7 +237,7 @@ image:screenshot_tiering_initial_policy_settings.png["Uma captura de tela que mo
 Você configurou com sucesso a hierarquização de dados de volumes no cluster para o armazenamento de objetos do Azure Blob.
 
 .O que vem a seguir?
-link:task-licensing-cloud-tiering.html["Não se esqueça de assinar o serviço Cloud Tiering"] .
+link:task-licensing-cloud-tiering.html["Não se esqueça de assinar o serviço Cloud Tiering"].
 
 Você pode revisar informações sobre os dados ativos e inativos no cluster. link:task-managing-tiering.html["Saiba mais sobre como gerenciar suas configurações de níveis"] .
 
