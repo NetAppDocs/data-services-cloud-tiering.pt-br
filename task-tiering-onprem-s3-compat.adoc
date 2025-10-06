@@ -1,0 +1,222 @@
+---
+sidebar: sidebar 
+permalink: task-tiering-onprem-s3-compat.html 
+keywords: data tiering, fabricpool, cloud tiering, tiering cold data, tiering inactive data, tiering aff, tiering fas, tiering ontap, tiering volumes, tier data, tier cold data, tier fas, tier aff, tier ontap, s3, tier to s3, minio 
+summary: 'Libere espaço em seus clusters ONTAP locais, hierarquizando dados inativos para qualquer serviço de armazenamento de objetos que use o protocolo Simple Storage Service (S3).' 
+---
+= Dados em camadas de clusters ONTAP locais para armazenamento de objetos S3 no NetApp Cloud Tiering
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Libere espaço em seus clusters ONTAP locais hierarquizando dados inativos no NetApp Cloud Tiering para qualquer serviço de armazenamento de objetos que use o protocolo Simple Storage Service (S3).
+
+Neste momento, o armazenamento de objetos MinIO foi qualificado.
+
+[CAUTION]
+====
+Os clientes que desejam usar armazenamentos de objetos que não são oficialmente suportados como uma camada de nuvem podem fazê-lo usando estas instruções.  Os clientes devem testar e confirmar se o armazenamento de objetos atende aos seus requisitos.
+
+A NetApp não oferece suporte nem é responsável por quaisquer problemas decorrentes de qualquer Serviço de Armazenamento de Objetos de terceiros, especialmente quando não há acordos de suporte firmados com o terceiro que originou o produto.  É reconhecido e acordado que a NetApp não será responsável por nenhum dano associado nem será obrigada a fornecer suporte para esse produto de terceiros.
+
+====
+
+
+== Início rápido
+
+Comece rapidamente seguindo estas etapas ou role para baixo até as seções restantes para obter detalhes completos.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]Prepare-se para hierarquizar dados no armazenamento de objetos compatível com S3
+[role="quick-margin-para"]
+Você precisa do seguinte:
+
+[role="quick-margin-list"]
+* Um cluster ONTAP local de origem executando o ONTAP 9.8 ou posterior que você adicionou ao NetApp Console e uma conexão por uma porta especificada pelo usuário para o armazenamento de objetos compatível com S3 de destino. https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Aprenda como descobrir um cluster"^] .
+* O FQDN, a chave de acesso e a chave secreta do servidor de armazenamento de objetos para que o cluster ONTAP possa acessar o bucket.
+* Um agente do Console instalado em suas instalações.
+* Rede para o agente que permite uma conexão HTTPS de saída para o cluster ONTAP de origem, para o armazenamento de objetos compatível com S3 e para o serviço Cloud Tiering.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]Configurar níveis
+[role="quick-margin-para"]
+No Console, selecione um sistema local, selecione *Ativar* para o serviço de Hierarquia e siga as instruções para hierarquizar dados no armazenamento de objetos compatível com S3.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]Configurar licenciamento
+[role="quick-margin-para"]
+Pague pelo Cloud Tiering por meio de uma assinatura pré-paga do seu provedor de nuvem, uma licença do Cloud Tiering do tipo "traga sua própria licença" ou uma combinação de ambos:
+
+[role="quick-margin-list"]
+* Para subscrever a oferta PAYGO da https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Mercado AWS"^] , https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Mercado do Azure"^] , ou https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["Mercado GCP"^] , selecione *Inscrever-se* e siga as instruções.
+* Para pagar usando uma licença BYOL do Cloud Tiering, envie um e-mail para:ng-cloud-tiering@netapp.com?subject=Licensing[entre em contato conosco se precisar comprar uma] e, em seguida,link:https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-licenses.html["adicione-o ao NetApp Console"^] . .
+
+
+
+
+== Requisitos
+
+Verifique o suporte para seu cluster ONTAP , configure sua rede e prepare seu armazenamento de objetos.
+
+A imagem a seguir mostra cada componente e as conexões que você precisa preparar entre eles:
+
+image:diagram_cloud_tiering_s3_compat.png["Uma imagem de arquitetura que mostra o serviço Cloud Tiering com uma conexão ao agente em suas instalações, o agente com uma conexão ao seu cluster ONTAP e uma conexão entre o cluster ONTAP e o armazenamento de objetos.  Os dados ativos residem no cluster ONTAP , enquanto os dados inativos residem no armazenamento de objetos."]
+
+
+NOTE: A comunicação entre o agente e o servidor de armazenamento de objetos compatível com S3 é somente para configuração de armazenamento de objetos.
+
+
+
+=== Prepare seus clusters ONTAP
+
+Seus clusters ONTAP de origem devem atender aos seguintes requisitos ao hierarquizar dados para armazenamento de objetos compatível com S3.
+
+Plataformas ONTAP suportadas:: Você pode hierarquizar dados de sistemas AFF ou sistemas FAS com agregados totalmente SSD ou totalmente HDD.
+Versão ONTAP suportada:: ONTAP 9.8 ou posterior
+Requisitos de rede do cluster::
++
+--
+* O cluster ONTAP inicia uma conexão HTTPS por meio de uma porta especificada pelo usuário para o armazenamento de objetos compatível com S3 (a porta é configurável durante a configuração de camadas).
++
+O sistema ONTAP de origem lê e grava dados de e para o armazenamento de objetos.  O armazenamento de objetos nunca inicia, ele apenas responde.
+
+* É necessária uma conexão de entrada do agente, que deve residir em suas instalações.
++
+Não é necessária uma conexão entre o cluster e o serviço Cloud Tiering.
+
+* Um LIF intercluster é necessário em cada nó ONTAP que hospeda os volumes que você deseja hierarquizar.  O LIF deve ser associado ao _IPspace_ que o ONTAP deve usar para se conectar ao armazenamento de objetos.
++
+Ao configurar o armazenamento em camadas de dados, o Cloud Tiering solicita o IPspace a ser usado.  Você deve escolher o IPspace ao qual cada LIF está associado.  Pode ser o IPspace "padrão" ou um IPspace personalizado que você criou.  Saiba mais sobre https://docs.netapp.com/us-en/ontap/networking/create_a_lif.html["LIFs"^] e https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["Espaços IP"^] .
+
+
+
+--
+Volumes e agregados suportados:: O número total de volumes que o Cloud Tiering pode hierarquizar pode ser menor que o número de volumes no seu sistema ONTAP .  Isso ocorre porque os volumes não podem ser hierarquizados a partir de alguns agregados.  Consulte a documentação do ONTAP para https://docs.netapp.com/us-en/ontap/fabricpool/requirements-concept.html#functionality-or-features-not-supported-by-fabricpool["funcionalidade ou recursos não suportados pelo FabricPool"^] .
+
+
+
+TIP: O Cloud Tiering oferece suporte aos volumes FlexVol e FlexGroup .
+
+
+
+=== Descubra um cluster ONTAP
+
+Você precisa adicionar seu sistema ONTAP local ao Console antes de começar a hierarquizar dados frios.
+
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Aprenda como descobrir um cluster"^] .
+
+
+
+=== Preparar armazenamento de objetos compatível com S3
+
+O armazenamento de objetos compatível com S3 deve atender aos seguintes requisitos.
+
+Credenciais S3:: Ao configurar o armazenamento em camadas para objetos compatíveis com S3, você será solicitado a criar um bucket S3 ou selecionar um bucket S3 existente.  Você precisa fornecer ao Cloud Tiering uma chave de acesso S3 e uma chave secreta.  O Cloud Tiering usa as chaves para acessar seu bucket.
++
+--
+Essas chaves de acesso devem ser associadas a um usuário que tenha as seguintes permissões:
+
+[source, json]
+----
+"s3:ListAllMyBuckets",
+"s3:ListBucket",
+"s3:GetObject",
+"s3:PutObject",
+"s3:DeleteObject",
+"s3:CreateBucket"
+----
+--
+
+
+
+
+=== Criar ou trocar agentes
+
+Um agente do Console é necessário para hierarquizar dados na nuvem.  Ao hierarquizar dados para armazenamento de objetos compatível com S3, um agente deve estar disponível em suas instalações.  Você precisará instalar um novo agente ou certificar-se de que o agente selecionado atualmente resida no local.
+
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["Saiba mais sobre agentes"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html["Instalar e configurar um agente no local"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-manage-multiple-connectors.html#switch-between-connectors["Alternar entre agentes"^]
+
+
+
+
+=== Preparar a rede para o agente do Console
+
+Certifique-se de que o agente tenha as conexões de rede necessárias.
+
+.Passos
+. Certifique-se de que a rede onde o agente está instalado habilite as seguintes conexões:
++
+** Uma conexão HTTPS pela porta 443 para o serviço Cloud Tiering(https://docs.netapp.com/us-en/bluexp-setup-admin/task-set-up-networking-on-prem.html#endpoints-contacted-for-day-to-day-operations["veja a lista de pontos de extremidade"^] )
+** Uma conexão HTTPS pela porta 443 para armazenamento de objetos compatível com S3
+** Uma conexão HTTPS pela porta 443 para seu LIF de gerenciamento de cluster ONTAP
+
+
+
+
+
+
+== Hierarquização de dados inativos do seu primeiro cluster para armazenamento de objetos compatível com S3
+
+Depois de preparar seu ambiente, comece a hierarquizar os dados inativos do seu primeiro cluster.
+
+.O que você vai precisar
+* https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Um sistema local adicionado ao NetApp Console"^] .
+* O FQDN do servidor de armazenamento de objetos compatível com S3 e a porta que será usada para comunicações HTTPS.
+* Uma chave de acesso e uma chave secreta que tenham as permissões S3 necessárias.
+
+
+.Passos
+. Selecione o sistema ONTAP local.
+. Clique em *Ativar* para o serviço Cloud Tiering no painel direito.
++
+image:screenshot_setup_tiering_onprem.png["Uma captura de tela que mostra a opção Tiering que aparece no lado direito da tela depois que você seleciona um sistema ONTAP local."]
+
+. *Definir nome do armazenamento de objetos*: insira um nome para este armazenamento de objetos.  Ele deve ser exclusivo de qualquer outro armazenamento de objetos que você possa estar usando com agregados neste cluster.
+. *Selecionar provedor*: Selecione *Compatível com S3* e selecione *Continuar*.
+. *Selecionar provedor*: Selecione *Compatível com S3* e selecione *Continuar*.
+. Conclua as etapas nas páginas *Criar armazenamento de objetos*:
++
+.. *Servidor*: Insira o FQDN do servidor de armazenamento de objetos compatível com S3, a porta que o ONTAP deve usar para comunicação HTTPS com o servidor e a chave de acesso e a chave secreta de uma conta que tenha as permissões S3 necessárias.
+.. *Bucket*: Adicione um novo bucket ou selecione um bucket existente e selecione *Continuar*.
+.. *Bucket*: Adicione um novo bucket ou selecione um bucket existente e selecione *Continuar*.
+.. *Rede de cluster*: Selecione o espaço IP que o ONTAP deve usar para se conectar ao armazenamento de objetos e selecione *Continuar*.
+.. *Rede de cluster*: Selecione o espaço IP que o ONTAP deve usar para se conectar ao armazenamento de objetos e selecione *Continuar*.
++
+Selecionar o IPspace correto garante que o Cloud Tiering possa configurar uma conexão do ONTAP para seu armazenamento de objetos compatível com S3.
+
++
+Você também pode definir a largura de banda de rede disponível para carregar dados inativos no armazenamento de objetos definindo a "Taxa máxima de transferência".  Selecione o botão de opção *Limitado* e insira a largura de banda máxima que pode ser usada ou selecione *Ilimitado* para indicar que não há limite.
+
+
+
+. Na página _Sucesso_, selecione *Continuar* para configurar seus volumes agora.
+. Na página _Volumes em camadas_, selecione os volumes para os quais deseja configurar o hierarquização e selecione *Continuar*:
++
+** Para selecionar todos os volumes, marque a caixa na linha de título (image:button_backup_all_volumes.png[""] ) e selecione *Configurar volumes*.
+** Para selecionar vários volumes, marque a caixa para cada volume (image:button_backup_1_volume.png[""] ) e selecione *Configurar volumes*.
+** Para selecionar um único volume, selecione a linha (ouimage:screenshot_edit_icon.gif["ícone de lápis de edição"] ícone) para o volume.
++
+image:screenshot_tiering_initial_volumes.png["Uma captura de tela que mostra como selecionar um único volume, vários volumes ou todos os volumes, e o botão modificar volumes selecionados."]
+
+
+
+. Na caixa de diálogo _Política de níveis_, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento para os volumes selecionados e selecione *Aplicar*.
++
+link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"] .
+
++
+image:screenshot_tiering_initial_policy_settings.png["Uma captura de tela que mostra as configurações de política de camadas configuráveis."]
+
+
+
+.O que vem a seguir?
+link:task-licensing-cloud-tiering.html["Não se esqueça de assinar o serviço Cloud Tiering"] .
+
+Você pode revisar informações sobre os dados ativos e inativos no cluster. link:task-managing-tiering.html["Saiba mais sobre como gerenciar suas configurações de níveis"] .
+
+Você também pode criar armazenamento de objetos adicional nos casos em que deseja hierarquizar dados de determinados agregados em um cluster para diferentes armazenamentos de objetos.  Ou se você planeja usar o FabricPool Mirroring, onde seus dados em camadas são replicados para um armazenamento de objetos adicional. link:task-managing-object-storage.html["Saiba mais sobre como gerenciar armazenamentos de objetos"] .

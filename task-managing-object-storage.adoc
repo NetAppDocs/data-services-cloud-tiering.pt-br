@@ -1,0 +1,168 @@
+---
+sidebar: sidebar 
+permalink: task-managing-object-storage.html 
+keywords: object storage, mirror object storage, create object storage, remove object storage, swap object storage, display object storage, license 
+summary: Depois de configurar seus clusters ONTAP locais para hierarquizar dados em um armazenamento de objetos específico, você pode executar tarefas adicionais de armazenamento de objetos no NetApp Cloud Tiering.  Você pode adicionar novo armazenamento de objetos, espelhar seus dados em camadas para um armazenamento de objetos secundário, trocar o armazenamento de objetos primário e espelhado, remover um armazenamento de objetos espelhado de um agregado e muito mais. 
+---
+= Gerenciar o armazenamento de objetos usado para hierarquização de dados no NetApp Cloud Tiering
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Depois de configurar seus clusters ONTAP locais para hierarquizar dados em um armazenamento de objetos específico, você pode executar tarefas adicionais de armazenamento de objetos usando o NetApp Cloud Tiering.  Você pode adicionar novo armazenamento de objetos, espelhar seus dados em camadas para um armazenamento de objetos secundário, trocar o armazenamento de objetos primário e espelhado, remover um armazenamento de objetos espelhado de um agregado e muito mais.
+
+
+
+== Exibir armazenamentos de objetos configurados para um cluster
+
+Você pode visualizar todos os armazenamentos de objetos que foram configurados para cada cluster e a quais agregados eles estão anexados.
+
+.Passos
+. Na página *Clusters*, selecione o ícone de menu para um cluster e selecione *Informações do repositório de objetos*.
+. Na página *Clusters*, selecione o ícone de menu para um cluster e selecione *Informações do repositório de objetos*.
+. Revise os detalhes sobre os armazenamentos de objetos.
++
+Este exemplo mostra um armazenamento de objetos do Amazon S3 e do Azure Blob anexados a diferentes agregados em um cluster.
+
++
+image:screenshot_tiering_object_store_view.png["Uma captura de tela que mostra as informações de armazenamento de objetos, que detalham a capacidade total utilizada, o agregado anexado ao armazenamento de objetos, o nome do armazenamento de objetos e mais informações."]
+
+
+
+
+
+== Adicionar um novo armazenamento de objetos
+
+Você pode adicionar um novo armazenamento de objetos para agregados no seu cluster.  Depois de criá-lo, você pode anexá-lo a um agregado.
+
+.Passos
+. Na página *Clusters*, selecione o ícone de menu para um cluster e selecione *Informações do repositório de objetos*.
+. Na página *Clusters*, selecione o ícone de menu para um cluster e selecione *Informações do repositório de objetos*.
+. Na página Informações do Object Store, selecione *Criar novo Object Store*.
+. Na página Informações do Object Store, selecione *Criar novo Object Store*.
++
+image:screenshot_tiering_object_store_create_button.png["Uma captura de tela mostrando o botão Criar novo armazenamento de objetos para criar um novo armazenamento de objetos."]
+
++
+O assistente de armazenamento de objetos é iniciado.  O exemplo abaixo mostra como criar um armazenamento de objetos no Amazon S3.
+
+. *Definir nome do armazenamento de objetos*: insira um nome para este armazenamento de objetos.  Ele deve ser exclusivo de qualquer outro armazenamento de objetos que você possa estar usando com agregados neste cluster.
+. *Selecionar provedor*: selecione o provedor, por exemplo, *Amazon Web Services*, e selecione *Continuar*.
+. Conclua as etapas nas páginas *Criar armazenamento de objetos*:
++
+.. *S3 Bucket*: adicione um novo bucket S3 ou selecione um bucket S3 existente que comece com o prefixo _fabric-pool_.  Em seguida, insira o ID da conta da AWS que fornece acesso ao bucket, selecione a região do bucket e selecione *Continuar*.
++
+O prefixo _fabric-pool_ é necessário porque a política do IAM para o agente do Console permite que a instância execute ações do S3 em buckets nomeados com esse prefixo exato.  Por exemplo, você pode nomear o bucket S3 _fabric-pool-AFF1_, onde AFF1 é o nome do cluster.
+
+.. *Ciclo de vida da classe de armazenamento*: o Cloud Tiering gerencia as transições do ciclo de vida dos seus dados em camadas.  Os dados começam na classe _Padrão_, mas você pode criar uma regra para aplicar uma classe de armazenamento diferente aos dados após um determinado número de dias.
++
+Selecione a classe de armazenamento S3 para a qual você deseja fazer a transição dos dados em camadas e o número de dias antes que os dados sejam atribuídos a essa classe e selecione *Continuar*.  Por exemplo, a captura de tela abaixo mostra que dados em camadas são atribuídos à classe _Standard-IA_ a partir da classe _Standard_ após 45 dias no armazenamento de objetos.
+
++
+Se você escolher *Manter dados nesta classe de armazenamento*, os dados permanecerão na classe de armazenamento _Padrão_ e nenhuma regra será aplicada. link:reference-aws-support.html["Veja as classes de armazenamento suportadas"^] .
+
++
+image:screenshot_tiering_lifecycle_selection_aws.png["Uma captura de tela mostrando como selecionar outra classe de armazenamento que é atribuída aos seus dados após um certo número de dias."]
+
++
+Observe que a regra do ciclo de vida é aplicada a todos os objetos no bucket selecionado.
+
+.. *Credenciais*: insira o ID da chave de acesso e a chave secreta de um usuário do IAM que tenha as permissões S3 necessárias e selecione *Continuar*.
++
+O usuário do IAM deve estar na mesma conta da AWS que o bucket que você selecionou ou criou na página *S3 Bucket*.  Veja as permissões necessárias na seção sobre ativação de níveis.
+
+.. *Rede de cluster*: Selecione o IPspace que o ONTAP deve usar para se conectar ao armazenamento de objetos e selecione *Continuar*.
++
+Selecionar o IPspace correto garante que o Cloud Tiering possa configurar uma conexão do ONTAP para o armazenamento de objetos do seu provedor de nuvem.
+
+
+
+
+
+O armazenamento de objetos é criado.
+
+Agora você pode anexar o armazenamento de objetos a um agregado no seu cluster.
+
+
+
+== Anexar um segundo armazenamento de objetos a um agregado para espelhamento
+
+Você pode anexar um segundo armazenamento de objetos a um agregado para criar um espelho FabricPool para classificar dados de forma síncrona em dois armazenamentos de objetos.  Você deve ter um armazenamento de objetos já anexado ao agregado. https://docs.netapp.com/us-en/ontap/fabricpool/create-mirror-task.html["Saiba mais sobre os espelhos FabricPool"^] .
+
+Ao usar uma configuração do MetroCluster , é uma prática recomendada usar armazenamentos de objetos na nuvem pública que estejam em diferentes zonas de disponibilidade. https://docs.netapp.com/us-en/ontap/fabricpool/setup-object-stores-mcc-task.html["Saiba mais sobre os requisitos do MetroCluster na documentação do ONTAP"^] .  Dentro de um MetroCluster, não é recomendado usar agregados não espelhados, pois isso gerará uma mensagem de erro.
+
+Quando você usa o StorageGRID como seu armazenamento de objetos em uma configuração MetroCluster , ambos os sistemas ONTAP podem executar a hierarquização do FabricPool em um único sistema StorageGRID .  Cada sistema ONTAP deve hierarquizar dados em diferentes grupos.
+
+.Passos
+. Na página *Clusters*, selecione *Configuração avançada* para o cluster selecionado.
++
+image:screenshot_tiering_advanced_setup_button.png["Uma captura de tela mostrando o botão Configuração avançada de um cluster."]
+
+. Na página Configuração avançada, arraste o armazenamento de objetos que você deseja usar para o local do armazenamento de objetos espelho.
++
+image:screenshot_tiering_mirror_config.png["Uma captura de tela mostrando como arrastar um segundo armazenamento de objetos para um agregado para criar um espelho em camadas."]
+
+. Na caixa de diálogo Anexar armazenamento de objetos, selecione *Anexar* e o segundo armazenamento de objetos será anexado ao agregado.
++
+image:screenshot_tiering_mirror_config_complete.png["Uma captura de tela mostrando um segundo armazenamento de objetos anexado a um agregado."]
+
+
+
+O status do espelho aparecerá como "Sincronização em andamento" enquanto os dois armazenamentos de objetos estiverem sincronizando.  O status mudará para "Sincronizado" quando a sincronização estiver concluída.
+
+
+
+== Troque o armazenamento de objetos primário e espelho
+
+Você pode trocar o armazenamento de objetos primário e espelho por um agregado.  O espelho do armazenamento de objetos se torna o primário, e o primário original se torna o espelho.
+
+.Passos
+. Na página *Clusters*, selecione *Configuração avançada* para o cluster selecionado.
++
+image:screenshot_tiering_advanced_setup_button.png["Uma captura de tela mostrando o botão Configuração avançada de um cluster."]
+
+. Na página Configuração avançada, selecione o ícone de menu do agregado e selecione *Trocar destinos*.
++
+image:screenshot_tiering_mirror_swap.png["Uma captura de tela mostrando a opção Trocar destino para um agregado."]
+
+. Aprove a ação na caixa de diálogo e os armazenamentos de objetos primário e espelho serão trocados.
+
+
+
+
+== Remover um armazenamento de objeto espelho de um agregado
+
+Você pode remover um espelho FabricPool se não precisar mais replicar para um armazenamento de objetos adicional.
+
+.Passos
+. Na página *Clusters*, selecione *Configuração avançada* para o cluster selecionado.
++
+image:screenshot_tiering_advanced_setup_button.png["Uma captura de tela mostrando o botão Configuração avançada de um cluster."]
+
+. Na página Configuração avançada, selecione o ícone de menu para o agregado e selecione *Desespelhar armazenamento de objetos*.
++
+image:screenshot_tiering_mirror_delete.png["Uma captura de tela mostrando a opção Unmirror Object Store para um agregado."]
+
+
+
+O armazenamento de objetos espelho é removido do agregado e os dados em camadas não são mais replicados.
+
+
+NOTE: Ao remover o armazenamento de objetos espelho de uma configuração do MetroCluster , você será perguntado se deseja remover também o armazenamento de objetos primário.  Você pode optar por manter o armazenamento de objetos primário anexado ao agregado ou removê-lo.
+
+
+
+== Migre seus dados em camadas para um provedor de nuvem diferente
+
+O Cloud Tiering permite que você migre facilmente seus dados em camadas para um provedor de nuvem diferente.  Por exemplo, se você quiser migrar do Amazon S3 para o Azure Blob, siga as etapas listadas acima nesta ordem:
+
+. Adicione um armazenamento de objetos do Azure Blob.
+. Anexe este novo armazenamento de objetos como espelho do agregado existente.
+. Troque os armazenamentos de objetos primário e espelho.
+. Desespelhe o armazenamento de objetos do Amazon S3.
+

@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: task-monitor-tiering-alerts.html 
+keywords: tiering, status, monitor, alert, notification, cloud tiering, bluexp 
+summary: Você pode visualizar o status dos alertas de níveis no Centro de Notificações do NetApp Console. 
+---
+= Monitore o status dos alertas de níveis do NetApp Cloud Tiering
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode visualizar o status dos alertas de níveis do NetApp Cloud Tiering no Centro de Notificações do NetApp Console.
+
+O Centro de Notificações rastreia o progresso dos incidentes de hierarquização para que você possa verificar se eles foram resolvidos ou não.  Você pode exibir as notificações selecionando (image:icon_bell.png["sino de notificação"] ) na barra de menu do Console.
+
+Neste momento, há um evento de hierarquização que aparecerá como uma notificação:
+
+Camada de dados adicionais do cluster <nome> para armazenamento de objetos para economizar espaço de armazenamento
+
+Esta notificação é uma "Recomendação" para melhorar a eficiência do sistema e reduzir os custos de armazenamento.  Isso indica que um cluster está hierarquizando menos de 20% de seus dados inativos, incluindo clusters que não estão hierarquizando nenhum dado.  Ele fornece um link para o https://bluexp.netapp.com/cloud-tiering-service-tco["Calculadora de custo total de propriedade e economia de Cloud Tiering"^] para ajudar você a calcular sua economia de custos.
+
+O NetApp Console não envia um e-mail para esta notificação.
+
+https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html["Saiba mais sobre o Centro de Notificações"^] .

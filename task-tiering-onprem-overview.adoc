@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: task-tiering-onprem-overview.html 
+keywords: overview, tiering overview, tiered clusters, clusters enabled for tiering, data tiering overview, cold data, hot data, tiered data, savings, savings opportunities, saving opportunity, policies, cold snapshots, all dp user data, cold user data & snapshots, cold user data and snapshots, all user data, no policy, marketplace subscriptions, clusters associated 
+summary: O Cloud Tiering fornece uma visão agregada do armazenamento em camadas de dados de cada um dos seus clusters locais.  Esta visão geral fornece uma imagem clara do seu ambiente e permite que você tome as medidas adequadas. 
+---
+= Obtenha uma visão geral da hierarquização de dados dos seus clusters no NetApp Cloud Tiering
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O NetApp Cloud Tiering fornece uma visão agregada do armazenamento em camadas de dados de cada um dos seus clusters locais.  Esta visão geral fornece uma imagem clara do seu ambiente e permite que você tome as medidas adequadas.
+
+Selecione *Cloud Tiering > On-Premises Dashboard* para visualizar os seguintes detalhes sobre seu ambiente.
+
+image:screenshot_tiering_onprem_dashboard.png["Uma captura de tela da página do Painel local."]
+
+Aglomerados descobertos:: O número de clusters locais que o Cloud Tiering descobriu.  O gráfico fornece uma visão geral do status de hierarquização desses clusters.
++
+--
+* Alto nível - Clusters que estão estratificando mais de 20% de seus dados inativos
+* Baixa hierarquização - Clusters que hierarquizam menos de 20% dos seus dados inativos
+* Sem hierarquização - Clusters que não hierarquizam nenhum dado
+* Não elegível - Clusters que não oferecem suporte à hierarquização de dados
+
+
+--
+Visão geral dos dados:: A quantidade de dados que está sendo usada por todos os clusters descobertos. O gráfico mostra quantos dados estão sendo hierarquizados para esses clusters.
++
+--
+* Dados em camadas - Dados frios totais sendo colocados em camadas na nuvem
+* Dados frios - Total de dados frios que não estão sendo hierarquizados
+* Dados ativos - Total de dados ativos que estão sendo usados
+* Não elegível - Total de dados que não estão sendo hierarquizados porque o cluster ou volume não oferece suporte à hierarquização de dados
+
+
+--
+Visão geral de níveis:: A quantidade de dados que estão sendo hierarquizados atualmente e a quantidade de dados inativos que poderiam ser hierarquizados.
+Políticas:: O número de vezes que cada política de camadas foi aplicada a um volume.
+Assinaturas do Marketplace:: O número de clusters associados a cada tipo de assinatura do Marketplace e uma indicação sobre o status da sua assinatura.
+

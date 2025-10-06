@@ -1,0 +1,15 @@
+= A aba de licenciamento foi removida
+:allow-uri-read: 
+
+
+
+
+=== A aba de licenciamento foi removida
+
+A guia Licenciamento foi removida da interface de Hierarquia de Nuvem.  Agora, todo o licenciamento para assinaturas pré-pagas (PAYGO) pode ser acessado no Painel de controle local do Cloud Tiering.  Também há um link dessa página para a BlueXP digital wallet, para que você possa visualizar e gerenciar qualquer licença do Cloud Tiering (BYOL).
+
+
+
+=== As guias de níveis foram renomeadas e atualizadas
+
+A aba "Painel de Clusters" foi renomeada para "Clusters", e a aba "Visão Geral On-Prem" foi renomeada para "Painel On-Premises".  Estas páginas adicionaram algumas informações que ajudarão você a avaliar se é possível otimizar seu espaço de armazenamento com configurações de camadas adicionais.

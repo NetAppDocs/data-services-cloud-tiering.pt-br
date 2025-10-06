@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: reference-google-support.html 
+keywords: google, gcp, regions, google regions, gcp regions, storage class, standard, nearline, coldline, archive, cloud tiering, cloud tier, bluexp 
+summary: O NetApp Cloud Tiering oferece suporte a diversas classes de armazenamento do Google Cloud e à maioria das regiões. 
+---
+= Classes e regiões de armazenamento do Google Cloud compatíveis com o NetApp Cloud Tiering
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O NetApp Cloud Tiering oferece suporte a diversas classes de armazenamento do Google Cloud e à maioria das regiões.
+
+
+
+== Classes de armazenamento do GCP com suporte
+
+Ao configurar o armazenamento em camadas de dados no GCP a partir dos seus sistemas ONTAP locais, o Cloud Tiering usa automaticamente a classe de armazenamento _Standard_ para seus dados inativos.  O Cloud Tiering pode aplicar uma regra de ciclo de vida para que os dados passem da classe de armazenamento _Standard_ para outras classes de armazenamento após um determinado número de dias.  Você pode escolher entre as seguintes classes de armazenamento:
+
+* Nearline
+* Linha fria
+* Arquivo
+
+
+Se você não escolher outra classe de armazenamento, os dados permanecerão na classe de armazenamento _Padrão_ e nenhuma regra será aplicada.
+
+Ao configurar uma regra de ciclo de vida do Cloud Tiering, você não deve configurar nenhuma regra de ciclo de vida ao configurar o bucket na sua conta do Google.
+
+https://cloud.google.com/storage/docs/storage-classes["Saiba mais sobre as aulas do Google Cloud Storage"^] .
+
+
+
+== Regiões do Google Cloud com suporte
+
+O Cloud Tiering oferece suporte às seguintes regiões.
+
+
+
+=== Américas
+
+* Iowa
+* Los Angeles
+* Montreal
+* Virgínia do Norte
+* Oregon
+* São Paulo
+* Carolina do Sul
+
+
+
+
+=== Ásia-Pacífico
+
+* Hong Kong
+* Bombaim
+* Osaka
+* Cingapura
+* Sidney
+* Taiwan
+* Tóquio
+
+
+
+
+=== Europa
+
+* Bélgica
+* Finlândia
+* Frankfurt
+* Londres
+* Holanda
+* Zurique
+

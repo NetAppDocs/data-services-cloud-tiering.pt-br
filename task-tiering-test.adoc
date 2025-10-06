@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: task-tiering-test.html 
+keywords: throughput, latency, tiering performance, cloud performance test, tiering test, object storage performance 
+summary: Execute um teste de desempenho na nuvem para medir a latência da rede e o desempenho da taxa de transferência de um cluster ONTAP para um armazenamento de objetos antes e depois de configurar a hierarquização de dados. 
+---
+= Medir a latência da rede e o desempenho da taxa de transferência no NetApp Cloud Tiering
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Execute um teste de desempenho na nuvem para medir a latência da rede e o desempenho da taxa de transferência de um cluster ONTAP para um armazenamento de objetos antes e depois de configurar a divisão de dados em camadas no NetApp Cloud Tiering.  O teste também identifica quaisquer falhas que tenham ocorrido.
+
+Aqui estão alguns exemplos de resultados de desempenho:
+
+image:screenshot_cloud_performance_test.png["Uma captura de tela dos resultados de desempenho do cluster para um teste de desempenho em nuvem."]
+
+.Antes de começar
+É melhor executar essa verificação quando o cluster estiver com menos de 50% de utilização da CPU.
+
+.Etapas para um cluster que não foi configurado para camadas
+. No menu de navegação à esquerda, selecione *Mobilidade > Camadas de nuvem*.
+. Na página *Clusters*, selecione o ícone de menu para um cluster e selecione *Teste de desempenho da nuvem*.
+. Revise os detalhes e selecione *Continuar*.
+. Revise os detalhes e selecione *Continuar*.
+. Siga as instruções para fornecer as informações necessárias.
++
+As informações que você precisa fornecer são as mesmas que você usaria se estivesse configurando camadas no cluster.
+
+. Opcionalmente, continue com o assistente de Volumes em camadas para concluir a configuração.
+
+
+.Etapas para um cluster que foi configurado para camadas
+. No menu de navegação à esquerda, selecione *Mobilidade > Camadas de nuvem*.
+. Na página *Clusters*, selecione o ícone de menu para um cluster e selecione *Teste de desempenho da nuvem*.
+. Na página *Clusters*, selecione o ícone de menu para um cluster e selecione *Teste de desempenho da nuvem*.
+. Selecione um nó na lista suspensa.
+. Veja os resultados ou verifique novamente o desempenho.
+

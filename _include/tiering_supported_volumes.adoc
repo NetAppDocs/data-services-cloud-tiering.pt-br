@@ -1,0 +1,6 @@
+= 
+:allow-uri-read: 
+
+
+Volumes e agregados suportados:: O número total de volumes que o Cloud Tiering pode hierarquizar pode ser menor que o número de volumes no seu sistema ONTAP .  Isso ocorre porque os volumes não podem ser hierarquizados a partir de alguns agregados.  Consulte a documentação do ONTAP para https://docs.netapp.com/us-en/ontap/fabricpool/requirements-concept.html#functionality-or-features-not-supported-by-fabricpool["funcionalidade ou recursos não suportados pelo FabricPool"^] .
+

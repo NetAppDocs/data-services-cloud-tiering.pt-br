@@ -1,0 +1,288 @@
+---
+sidebar: sidebar 
+permalink: task-managing-tiering.html 
+keywords: discover, volumes, report, hot, cold, inactive, active, capacity, used capacity, savings, health, failed, console 
+summary: Agora que você configurou o armazenamento em camadas de dados dos seus clusters ONTAP locais, você pode armazenar em camadas dados de volumes adicionais, alterar a política de armazenamento em camadas de um volume, descobrir clusters adicionais e muito mais. 
+---
+= Gerencie a hierarquização de dados para seus clusters no NetApp Cloud Tiering
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Agora que você configurou o armazenamento em camadas de dados dos seus clusters ONTAP locais, você pode armazenar em camadas dados de volumes adicionais, alterar a política de armazenamento em camadas de um volume, descobrir clusters adicionais e muito mais usando o NetApp Cloud Tiering.
+
+
+
+== Revisar informações de camadas para um cluster
+
+Verifique os dados na camada de nuvem, nos discos ou a quantidade de dados ativos e inativos nos discos do cluster.  Ou você pode querer ver a quantidade de dados quentes e frios nos discos do cluster.  O Cloud Tiering fornece essas informações para cada cluster.
+
+.Passos
+. No menu de navegação à esquerda, selecione *Mobilidade > Camadas de nuvem*.
+. Na página *Clusters*, selecione o ícone de menuimage:icon-action.png["Ícone de ações"] para um cluster e selecione *Informações do cluster*.
++
+image:screenshot_tiering_cluster_info_button.png["Uma captura de tela da seleção do botão Cluster Info na página Clusters."]
+
+. Revise os detalhes sobre o cluster.
++
+Aqui está um exemplo:
+
++
+image:screenshot_tiering_cluster_info.png["Uma captura de tela que mostra a capacidade total de dados usada pelo cluster, a capacidade usada pelo cluster e as informações do cluster."]
+
+
+
+Observe que a exibição é diferente para sistemas Cloud Volumes ONTAP .  Embora os volumes Cloud Volumes ONTAP possam ter dados em camadas na nuvem, eles não usam o serviço Cloud Tiering. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-tiering.html["Aprenda como hierarquizar dados inativos de sistemas Cloud Volumes ONTAP para armazenamento de objetos de baixo custo"^] .
+
+Você também pode https://docs.netapp.com/us-en/active-iq/task-informed-decisions-based-on-cloud-recommendations.html#tiering["visualizar informações de níveis para um cluster do Active IQ Digital Advisor (também conhecido como Digital Advisor)"^] se você estiver familiarizado com este produto da NetApp .  Selecione *Recomendações de nuvem* no painel de navegação esquerdo.
+
+image:screenshot_tiering_aiq_fabricpool_info.png["Uma captura de tela que mostra informações do FabricPool para um cluster usando o FabricPool Advisor do Digital Advisor."]
+
+
+
+== Dados de níveis de volumes adicionais
+
+Configure a hierarquização de dados para volumes adicionais a qualquer momento, por exemplo, após criar um novo volume.
+
+
+TIP: Você não precisa configurar o armazenamento de objetos porque ele já foi configurado quando você configurou inicialmente o armazenamento em camadas para o cluster.  ONTAP agrupa dados inativos de quaisquer volumes adicionais no mesmo armazenamento de objetos.
+
+.Passos
+. No menu de navegação à esquerda, selecione *Mobilidade > Camadas de nuvem*.
+. Na página *Clusters*, selecione *Volumes de camada* para o cluster.
++
+image:screenshot_tiering_tier_volumes_button.png["Uma captura de tela mostrando como selecionar o botão Volumes em camadas para um cluster."]
+
+. Na página _Volumes em camadas_, selecione os volumes para os quais você deseja configurar o escalonamento e inicie a página Política de escalonamento:
++
+** Para selecionar todos os volumes, marque a caixa na linha de título (image:button_backup_all_volumes.png[""] ) e selecione *Configurar volumes*.
+** Para selecionar vários volumes, marque a caixa para cada volume (image:button_backup_1_volume.png[""] ) e selecione *Configurar volumes*.
+** Para selecionar um único volume, selecione a linha (ouimage:screenshot_edit_icon.gif["ícone de lápis de edição"] ícone) para o volume.
++
+image:screenshot_tiering_tier_volumes.png["Uma captura de tela que mostra como selecionar um único volume, vários volumes ou todos os volumes, e o botão modificar volumes selecionados."]
+
+
+
+. Na caixa de diálogo _Política de níveis_, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento para os volumes selecionados e selecione *Aplicar*.
+. Na caixa de diálogo _Política de níveis_, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento para os volumes selecionados e selecione *Aplicar*.
++
+link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"] .
+
++
+image:screenshot_tiering_policy_settings.png["Uma captura de tela que mostra as configurações de política de camadas configuráveis."]
+
+
+
+.Resultado
+O ONTAP começa a hierarquizar os dados dos volumes selecionados na nuvem.
+
+
+
+== Alterar a política de níveis de um volume
+
+Alterar a política de hierarquização de um volume altera a maneira como o ONTAP hierarquiza dados frios no armazenamento de objetos.  A mudança começa no momento em que você altera a política.  Ele altera apenas o comportamento de hierarquização subsequente do volume; ele não move dados retroativamente para a camada de nuvem.
+
+.Passos
+. No menu de navegação à esquerda, selecione *Mobilidade > CloudTiering*.
+. Na página *Clusters*, selecione *Volumes de camada* para o cluster.
+. Na página *Clusters*, selecione *Volumes de camada* para o cluster.
+. Clique na linha de um volume, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento e selecione *Aplicar*.
+. Clique na linha de um volume, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento e selecione *Aplicar*.
++
+link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"] .
+
++
+image:screenshot_tiering_policy_settings.png["Uma captura de tela que mostra as configurações de política de camadas configuráveis."]
+
+
+
+
+NOTE: Se você vir opções para "Recuperar dados em camadas", consulte<<Migrar dados da camada de nuvem de volta para a camada de desempenho,Migrar dados da camada de nuvem de volta para a camada de desempenho>> para mais detalhes.
+
+.Resultado
+O ONTAP altera a política de hierarquização e começa a hierarquizar dados com base na nova política.
+
+
+
+== Alterar a largura de banda da rede disponível para carregar dados inativos no armazenamento de objetos
+
+Quando você ativa o Cloud Tiering para um cluster, por padrão, o ONTAP pode usar uma quantidade ilimitada de largura de banda para transferir os dados inativos dos volumes no sistema para o armazenamento de objetos.  Se o tráfego em camadas afetar as cargas de trabalho dos usuários, limite a largura de banda da rede usada durante a transferência.  Você pode escolher um valor entre 1 e 10.000 Mbps como taxa máxima de transferência.
+
+. No menu de navegação à esquerda, selecione *Mobilidade > Hierarquização*.
+. Na página *Clusters*, selecione o ícone de menuimage:icon-action.png["Ícone de ações"] para um cluster e selecione *Taxa máxima de transferência*.
+. Na página *Clusters*, selecione o ícone de menuimage:icon-action.png["Ícone de ações"] para um cluster e selecione *Taxa máxima de transferência*.
++
+image:screenshot_tiering_transfer_rate_button.png["Uma captura de tela da seleção do botão Taxa de transferência máxima na página Clusters."]
+
+. Na página _Taxa de transferência máxima_, selecione o botão de opção *Limitado* e insira a largura de banda máxima que pode ser usada ou selecione *Ilimitado* para indicar que não há limite.  Em seguida, selecione *Aplicar*.
+. Na página _Taxa de transferência máxima_, selecione o botão de opção *Limitado* e insira a largura de banda máxima que pode ser usada ou selecione *Ilimitado* para indicar que não há limite.  Em seguida, selecione *Aplicar*.
++
+image:screenshot_tiering_transfer_rate.png["Uma captura de tela da caixa de diálogo Taxa de transferência máxima de um cluster."]
+
+
+
+Esta configuração não afeta a largura de banda alocada a outros clusters que estejam hierarquizando dados.
+
+
+
+== Baixe um relatório de níveis para seus volumes
+
+Baixe um relatório da página Volumes em camadas para que você possa revisar o status de camadas de todos os volumes nos clusters que você está gerenciando.  Basta selecionar oimage:button_download.png["Download"] botão.  O Cloud Tiering gera um arquivo .CSV que você pode revisar e enviar para outros grupos, conforme necessário.  O arquivo .CSV inclui até 10.000 linhas de dados.
+
+image:screenshot_tiering_report_download.png["Uma captura de tela mostrando como gerar um arquivo CSV listando o status de camadas de todos os seus volumes."]
+
+
+
+== Migrar dados da camada de nuvem de volta para a camada de desempenho
+
+Dados em camadas acessados ​​da nuvem podem ser "reaquecidos" e movidos de volta para a camada de desempenho.  No entanto, se você quiser promover dados proativamente para a camada de desempenho a partir da camada de nuvem, poderá fazer isso na caixa de diálogo _Política de níveis_.  Esse recurso está disponível ao usar o ONTAP 9.8 e superior.
+
+Você pode fazer isso se quiser parar de usar camadas em um volume ou se decidir manter todos os dados do usuário na camada de desempenho, mas manter cópias do Snapshot na camada de nuvem.
+
+Existem duas opções:
+
+[cols="22,45,35"]
+|===
+| Opção | Descrição | Efeito na política de níveis 
+
+
+| Traga de volta todos os dados | Recupera todos os dados de volume e cópias de Snapshot em camadas na nuvem e os promove para a camada de desempenho. | A política de níveis foi alterada para "Sem política". 
+
+
+| Trazer de volta o sistema de arquivos ativo | Recupera apenas dados ativos do sistema de arquivos em camadas na nuvem e os promove para a camada de desempenho (as cópias de instantâneo permanecem na nuvem). | A política de hierarquização foi alterada para "Instantâneos frios". 
+|===
+
+NOTE: Você pode ser cobrado pelo seu provedor de nuvem com base na quantidade de dados transferidos da nuvem.
+
+.Passos
+Garanta que a camada de desempenho tenha espaço suficiente para os dados movidos de volta da nuvem.
+
+. No menu de navegação à esquerda, selecione *Mobilidade > Camadas de nuvem*.
+. Na página *Clusters*, selecione *Volumes de camada* para o cluster.
+. Na página *Clusters*, selecione *Volumes de camada* para o cluster.
+. Clique noimage:screenshot_edit_icon.gif["ícone de edição que aparece no final de cada linha na tabela para volumes em camadas"] ícone do volume, escolha a opção de recuperação que deseja usar e selecione *Aplicar*.
+. Clique noimage:screenshot_edit_icon.gif["ícone de edição que aparece no final de cada linha na tabela para volumes em camadas"] ícone do volume, escolha a opção de recuperação que deseja usar e selecione *Aplicar*.
++
+image:screenshot_tiering_policy_settings_with_retrieve.png["Uma captura de tela que mostra as configurações de política de camadas configuráveis."]
+
+
+
+.Resultado
+A política de camadas é alterada e os dados em camadas começam a ser migrados de volta para a camada de desempenho.  Dependendo da quantidade de dados na nuvem, o processo de transferência pode levar algum tempo.
+
+
+
+== Gerenciar configurações de níveis em agregados
+
+Cada agregado em seus sistemas ONTAP locais tem duas configurações que você pode ajustar: o limite de preenchimento de camadas e se o relatório de dados inativos está habilitado.  Cada agregado em seus sistemas ONTAP locais tem duas configurações que você pode ajustar: o limite de preenchimento de camadas e se o relatório de dados inativos está habilitado.
+
+Limiar de plenitude de estratificação:: Definir o limite para um número menor reduz a quantidade de dados que precisam ser armazenados na camada de desempenho antes que a hierarquização ocorra.  Isso pode ser útil para grandes agregados que contêm poucos dados ativos.
++
+--
+Definir o limite para um número maior aumenta a quantidade de dados que precisam ser armazenados na camada de desempenho antes que a hierarquização ocorra.  Isso pode ser útil para soluções projetadas para camadas somente quando os agregados estão próximos da capacidade máxima.
+
+--
+Relatório de dados inativos:: O relatório de dados inativos (IDR) usa um período de resfriamento de 31 dias para determinar quais dados são considerados inativos.  A quantidade de dados frios que são hierarquizados depende das políticas de hierarquização definidas nos volumes.  Essa quantidade pode ser diferente da quantidade de dados frios detectados pelo IDR usando um período de resfriamento de 31 dias.
++
+--
+
+TIP: É melhor manter o IDR ativado porque ele ajuda a identificar seus dados inativos e oportunidades de economia.  O IDR deve permanecer habilitado se a hierarquização de dados estiver habilitada em um agregado.
+
+--
+
+
+.Passos
+. Na página *Clusters*, selecione *Configuração avançada* para o cluster selecionado.
+. Na página *Clusters*, selecione *Configuração avançada* para o cluster selecionado.
++
+image:screenshot_tiering_advanced_setup_button.png["Uma captura de tela mostrando o botão Configuração avançada de um cluster."]
+
+. Na página Configuração avançada, selecione o ícone de menu do agregado e selecione *Modificar agregado*.
+. Na página Configuração avançada, selecione o ícone de menu do agregado e selecione *Modificar agregado*.
++
+image:screenshot_tiering_modify_aggr.png["Uma captura de tela mostrando a opção Modificar agregado para um agregado."]
+
+. Na caixa de diálogo exibida, modifique o limite de preenchimento e escolha se deseja habilitar ou desabilitar o relatório de dados inativos.
++
+image:screenshot_tiering_modify_aggregate.png["Uma captura de tela que mostra um controle deslizante para modificar o limite de preenchimento de camadas e um botão para habilitar ou desabilitar relatórios de dados inativos."]
+
+. Clique em *Aplicar*.
+
+
+
+
+== Corrigir a saúde operacional
+
+Se ocorrerem falhas, o Cloud Tiering exibirá um status de integridade operacional "Falha" no Painel do Cluster.  A integridade reflete o status do sistema ONTAP e do NetApp Console.
+
+.Passos
+. Identifique quaisquer clusters que tenham uma integridade operacional de "Falha".
+. Passe o mouse sobre o ícone informativo "i" para ver o motivo da falha.
+. Corrija o problema:
++
+.. Verifique se o cluster ONTAP está operacional e se tem uma conexão de entrada e saída com seu provedor de armazenamento de objetos.
+.. Verifique se o Console tem conexões de saída com o serviço Cloud Tiering, com o armazenamento de objetos e com os clusters ONTAP que ele descobre.
+
+
+
+
+
+
+== Descubra clusters adicionais do Cloud Tiering
+
+Você pode adicionar seus clusters ONTAP locais não descobertos ao Console na página Tiering _Cluster_ para poder habilitar o hierarquização do cluster.
+
+Observe que os botões também aparecem na página Tiering _On-Prem dashboard_ para você descobrir clusters adicionais.
+
+.Passos
+. Em Cloud Tiering, selecione a aba *Clusters*.
+. Para ver quaisquer clusters não descobertos, selecione *Mostrar clusters não descobertos*.
+. Para ver quaisquer clusters não descobertos, selecione *Mostrar clusters não descobertos*.
++
+image:screenshot_tiering_show_undiscovered_cluster.png["Uma captura de tela mostrando o botão Mostrar clusters não descobertos no Painel de níveis."]
+
++
+Se suas credenciais do NSS estiverem salvas no Console, os clusters na sua conta serão exibidos na lista.
+
++
+Se suas credenciais do NSS não forem salvas, você será solicitado a adicioná-las antes de poder ver os clusters não descobertos.
+
++
+image:screenshot_tiering_discover_cluster.png["Uma captura de tela mostrando como descobrir um cluster existente para adicionar ao Console e ao Painel de Hierarquia."]
+
+. Clique em *Descobrir Cluster* para o cluster que você deseja gerenciar por meio do Console e implementar a divisão de dados em camadas.
+. Na página _Detalhes do Cluster_, insira a senha da conta de usuário administrador e selecione *Descobrir*.
+. Na página _Detalhes do Cluster_, insira a senha da conta de usuário administrador e selecione *Descobrir*.
++
+Observe que o endereço IP de gerenciamento do cluster é preenchido com base nas informações da sua conta NSS.
+
+. Na página _Detalhes e credenciais_, o nome do cluster é adicionado como Nome do sistema, então selecione *Ir*.
+
+
+.Resultado
+O Console descobre o cluster e o adiciona à página Sistemas usando o nome do cluster como nome do sistema.
+
+Você pode habilitar o serviço de Hierarquia ou outros serviços para este cluster no painel direito.
+
+
+
+== Pesquisar um cluster em todos os agentes do Console
+
+Se você estiver usando vários agentes para gerenciar todo o armazenamento em seu ambiente, alguns clusters nos quais você deseja implementar camadas podem estar em outro agente.  Se não tiver certeza de qual agente está gerenciando um determinado cluster, você pode pesquisar em todos os agentes usando o Cloud Tiering.
+
+.Passos
+. Na barra de menu Cloud Tiering, selecione o menu de ação e selecione *Pesquisar cluster em todos os agentes*.
++
+image:screenshot_tiering_search for_cluster.png["Uma captura de tela mostrando como procurar um cluster que pode estar em qualquer um dos seus agentes."]
+
+. Na caixa de diálogo Pesquisar exibida, insira o nome do cluster e selecione *Pesquisar*.
++
+O Cloud Tiering exibe o nome do agente se ele conseguir encontrar o cluster.
+
+. https://docs.netapp.com/us-en/bluexp-setup-admin/task-manage-multiple-connectors.html#switch-between-connectors["Mude para o agente e configure a hierarquização para o cluster"^] .
+

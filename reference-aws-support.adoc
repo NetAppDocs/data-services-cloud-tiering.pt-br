@@ -1,0 +1,81 @@
+---
+sidebar: sidebar 
+permalink: reference-aws-support.html 
+keywords: aws, amazon, s3, support, regions, storage classes, cloud tiering, tiering, bluexp, netapp 
+summary: O NetApp Cloud Tiering oferece suporte a diversas classes de armazenamento S3 e à maioria das regiões. 
+---
+= Classes e regiões de armazenamento S3 com suporte para NetApp Cloud Tiering
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O NetApp Cloud Tiering oferece suporte a diversas classes de armazenamento S3 e à maioria das regiões.
+
+
+
+== Classes de armazenamento S3 suportadas
+
+Ao configurar o armazenamento em camadas de dados na AWS a partir dos seus sistemas ONTAP locais, o Cloud Tiering usa automaticamente a classe de armazenamento _Standard_ para seus dados inativos.  O Cloud Tiering pode aplicar uma regra de ciclo de vida para que os dados passem da classe de armazenamento _Padrão_ para outra classe de armazenamento após um determinado número de dias.  Você pode escolher entre as seguintes classes de armazenamento:
+
+* Acesso Padrão-Infrequente (S3 Padrão-IA)
+* Uma Zona - Acesso Infrequente (S3 Uma Zona - IA)
+* Camadas inteligentes (S3 Camadas inteligentes)
+* Recuperação instantânea de geleira
+
+
+Se você não escolher outra classe de armazenamento, os dados permanecerão na classe de armazenamento _Padrão_ e nenhuma regra será aplicada.
+
+Ao configurar uma regra de ciclo de vida do Cloud Tiering, você não deve configurar nenhuma regra de ciclo de vida ao configurar o bucket na sua conta da AWS.
+
+https://aws.amazon.com/s3/storage-classes/["Saiba mais sobre as classes de armazenamento S3"^] .
+
+
+
+== Regiões AWS suportadas
+
+O Cloud Tiering oferece suporte às seguintes regiões da AWS.
+
+
+
+=== Ásia-Pacífico
+
+* Bombaim
+* Seul
+* Cingapura
+* Sidney
+* Tóquio
+
+
+
+
+=== Europa
+
+* Frankfurt
+* Irlanda
+* Londres
+* Paris
+* Estocolmo
+
+
+
+
+=== América do Norte
+
+* Canadá Central
+* Leste dos EUA (Norte da Virgínia)
+* Leste dos EUA (Ohio)
+* Oeste dos EUA (Norte da Califórnia)
+* Oeste dos EUA (Oregon)
+
+
+
+
+=== Ámérica do Sul
+
+* São Paulo
+
