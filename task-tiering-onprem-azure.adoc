@@ -14,7 +14,7 @@ summary: Libere espaço em seus clusters ONTAP locais hierarquizando dados inati
 
 
 [role="lead"]
-Libere espaço em seus clusters ONTAP locais hierarquizando dados inativos no armazenamento de Blobs do Azure.  Libere espaço em seus clusters ONTAP locais hierarquizando dados inativos no armazenamento de Blobs do Azure.
+Libere espaço em seus clusters ONTAP locais hierarquizando dados inativos no armazenamento de Blobs do Azure.
 
 
 
@@ -179,15 +179,12 @@ image:screenshot_setup_tiering_onprem.png["Uma captura de tela que mostra a opç
 
 . *Definir nome do armazenamento de objetos*: insira um nome para este armazenamento de objetos.  Ele deve ser exclusivo de qualquer outro armazenamento de objetos que você possa estar usando com agregados neste cluster.
 . *Selecionar Provedor*: Selecione *Microsoft Azure* e selecione *Continuar*.
-. *Selecionar Provedor*: Selecione *Microsoft Azure* e selecione *Continuar*.
 . Conclua as etapas nas páginas *Criar armazenamento de objetos*:
 +
-.. *Grupo de recursos*: selecione um grupo de recursos onde um contêiner existente é gerenciado ou onde você gostaria de criar um novo contêiner para dados em camadas e selecione *Continuar*.
 .. *Grupo de recursos*: selecione um grupo de recursos onde um contêiner existente é gerenciado ou onde você gostaria de criar um novo contêiner para dados em camadas e selecione *Continuar*.
 +
 Ao usar um agente local, você deve inserir a Assinatura do Azure que fornece acesso ao grupo de recursos.
 
-.. *Contêiner do Azure*: selecione o botão de opção para adicionar um novo contêiner de Blobs a uma conta de armazenamento ou usar um contêiner existente.  Em seguida, selecione a conta de armazenamento e escolha o contêiner existente ou insira o nome do novo contêiner.  Em seguida, selecione *Continuar*.
 .. *Contêiner do Azure*: selecione o botão de opção para adicionar um novo contêiner de Blobs a uma conta de armazenamento ou usar um contêiner existente.  Em seguida, selecione a conta de armazenamento e escolha o contêiner existente ou insira o nome do novo contêiner.  Em seguida, selecione *Continuar*.
 +
 As contas de armazenamento e contêineres que aparecem nesta etapa pertencem ao grupo de recursos que você selecionou na etapa anterior.

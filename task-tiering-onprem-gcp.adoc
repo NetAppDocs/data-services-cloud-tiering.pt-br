@@ -154,8 +154,6 @@ NOTE: Se você estiver planejando configurar o Cloud Tiering para usar classes d
 . Vá para https://console.cloud.google.com/storage/settings["Configurações de armazenamento do GCP"^] e crie chaves de acesso para a conta de serviço:
 +
 .. Selecione um projeto e selecione *Interoperabilidade*.  Se você ainda não tiver feito isso, selecione *Habilitar acesso de interoperabilidade*.
-.. Selecione um projeto e selecione *Interoperabilidade*.  Se você ainda não tiver feito isso, selecione *Habilitar acesso de interoperabilidade*.
-.. Em *Chaves de acesso para contas de serviço*, selecione *Criar uma chave para uma conta de serviço*, selecione a conta de serviço que você acabou de criar e selecione *Criar chave*.
 .. Em *Chaves de acesso para contas de serviço*, selecione *Criar uma chave para uma conta de serviço*, selecione a conta de serviço que você acabou de criar e selecione *Criar chave*.
 +
 Você precisará inserir as chaves mais tarde, ao configurar o Cloud Tiering.

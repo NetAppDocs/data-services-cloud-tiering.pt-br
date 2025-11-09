@@ -51,7 +51,6 @@ Assine o Cloud Tiering no AWS Marketplace para configurar uma assinatura paga co
 .Passos
 . No NetApp Console, selecione *Mobilidade > Camadas de nuvem > Painel local*.
 . Na seção _Assinaturas do Marketplace_, selecione *Assinar* em Amazon Web Services e depois selecione *Continuar*.
-. Na seção _Assinaturas do Marketplace_, selecione *Assinar* em Amazon Web Services e depois selecione *Continuar*.
 . Inscreva-se no https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4["Mercado AWS"^] e, em seguida, faça login novamente no NetApp Console para concluir o registro.
 +
 O vídeo a seguir mostra o processo:
@@ -71,7 +70,6 @@ Assine o Cloud Tiering no Azure Marketplace para configurar uma assinatura paga 
 .Passos
 . No NetApp Console, selecione *Mobilidade > Camadas de nuvem > Painel local*.
 . Na seção _Assinaturas do Marketplace_, selecione *Assinar* em Microsoft Azure e depois selecione *Continuar*.
-. Na seção _Assinaturas do Marketplace_, selecione *Assinar* em Microsoft Azure e depois selecione *Continuar*.
 . Inscreva-se no https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Mercado do Azure"^] e, em seguida, faça login novamente no NetApp Console para concluir o registro.
 +
 O vídeo a seguir mostra o processo:
@@ -90,7 +88,6 @@ Assine o Cloud Tiering no Google Cloud Marketplace para configurar uma assinatur
 [[subscribe-gcp]]
 .Passos
 . No NetApp Console, selecione *Mobilidade > Camadas de nuvem > Painel local*.
-. Na seção _Assinaturas do Marketplace_, selecione *Assinar* no Google Cloud e depois selecione *Continuar*.
 . Na seção _Assinaturas do Marketplace_, selecione *Assinar* no Google Cloud e depois selecione *Continuar*.
 . Inscreva-se no https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["Mercado do Google Cloud"^] e, em seguida, faça login novamente no NetApp Console para concluir o registro.
 +

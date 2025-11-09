@@ -178,13 +178,10 @@ image:screenshot_setup_tiering_onprem.png["Uma captura de tela que mostra a opç
 
 . *Definir nome do armazenamento de objetos*: insira um nome para este armazenamento de objetos.  Ele deve ser exclusivo de qualquer outro armazenamento de objetos que você possa estar usando com agregados neste cluster.
 . *Selecionar provedor*: Selecione *Compatível com S3* e selecione *Continuar*.
-. *Selecionar provedor*: Selecione *Compatível com S3* e selecione *Continuar*.
 . Conclua as etapas nas páginas *Criar armazenamento de objetos*:
 +
 .. *Servidor*: Insira o FQDN do servidor de armazenamento de objetos compatível com S3, a porta que o ONTAP deve usar para comunicação HTTPS com o servidor e a chave de acesso e a chave secreta para uma conta que tenha as permissões S3 necessárias.
 .. *Bucket*: Adicione um novo bucket ou selecione um bucket existente e selecione *Continuar*.
-.. *Bucket*: Adicione um novo bucket ou selecione um bucket existente e selecione *Continuar*.
-.. *Rede de cluster*: Selecione o espaço IP que o ONTAP deve usar para se conectar ao armazenamento de objetos e selecione *Continuar*.
 .. *Rede de cluster*: Selecione o espaço IP que o ONTAP deve usar para se conectar ao armazenamento de objetos e selecione *Continuar*.
 +
 Selecionar o IPspace correto garante que o Cloud Tiering possa configurar uma conexão do ONTAP para seu armazenamento de objetos compatível com S3.

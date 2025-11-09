@@ -69,7 +69,6 @@ image:screenshot_tiering_tier_volumes.png["Uma captura de tela que mostra como s
 
 
 . Na caixa de diálogo _Política de níveis_, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento para os volumes selecionados e selecione *Aplicar*.
-. Na caixa de diálogo _Política de níveis_, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento para os volumes selecionados e selecione *Aplicar*.
 +
 link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"].
 
@@ -90,8 +89,6 @@ Alterar a política de hierarquização de um volume altera a maneira como o ONT
 .Passos
 . No menu de navegação à esquerda, selecione *Mobilidade > CloudTiering*.
 . Na página *Clusters*, selecione *Volumes de camada* para o cluster.
-. Na página *Clusters*, selecione *Volumes de camada* para o cluster.
-. Clique na linha de um volume, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento e selecione *Aplicar*.
 . Clique na linha de um volume, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento e selecione *Aplicar*.
 +
 link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"].
@@ -115,11 +112,9 @@ Quando você ativa o Cloud Tiering para um cluster, por padrão, o ONTAP pode us
 
 . No menu de navegação à esquerda, selecione *Mobilidade > Hierarquização*.
 . Na página *Clusters*, selecione o ícone de menuimage:icon-action.png["Ícone de ações"] para um cluster e selecione *Taxa máxima de transferência*.
-. Na página *Clusters*, selecione o ícone de menuimage:icon-action.png["Ícone de ações"] para um cluster e selecione *Taxa máxima de transferência*.
 +
 image:screenshot_tiering_transfer_rate_button.png["Uma captura de tela da seleção do botão Taxa de transferência máxima na página Clusters."]
 
-. Na página _Taxa de transferência máxima_, selecione o botão de opção *Limitado* e insira a largura de banda máxima que pode ser usada ou selecione *Ilimitado* para indicar que não há limite.  Em seguida, selecione *Aplicar*.
 . Na página _Taxa de transferência máxima_, selecione o botão de opção *Limitado* e insira a largura de banda máxima que pode ser usada ou selecione *Ilimitado* para indicar que não há limite.  Em seguida, selecione *Aplicar*.
 +
 image:screenshot_tiering_transfer_rate.png["Uma captura de tela da caixa de diálogo Taxa de transferência máxima de um cluster."]
@@ -164,8 +159,6 @@ Garanta que a camada de desempenho tenha espaço suficiente para os dados movido
 
 . No menu de navegação à esquerda, selecione *Mobilidade > Camadas de nuvem*.
 . Na página *Clusters*, selecione *Volumes de camada* para o cluster.
-. Na página *Clusters*, selecione *Volumes de camada* para o cluster.
-. Clique noimage:screenshot_edit_icon.gif["ícone de edição que aparece no final de cada linha na tabela para volumes em camadas"] ícone do volume, escolha a opção de recuperação que deseja usar e selecione *Aplicar*.
 . Clique noimage:screenshot_edit_icon.gif["ícone de edição que aparece no final de cada linha na tabela para volumes em camadas"] ícone do volume, escolha a opção de recuperação que deseja usar e selecione *Aplicar*.
 +
 image:screenshot_tiering_policy_settings_with_retrieve.png["Uma captura de tela que mostra as configurações de política de camadas configuráveis."]
@@ -179,7 +172,7 @@ A política de camadas é alterada e os dados em camadas começam a ser migrados
 
 == Gerenciar configurações de níveis em agregados
 
-Cada agregado em seus sistemas ONTAP locais tem duas configurações que você pode ajustar: o limite de preenchimento de camadas e se o relatório de dados inativos está habilitado.  Cada agregado em seus sistemas ONTAP locais tem duas configurações que você pode ajustar: o limite de preenchimento de camadas e se o relatório de dados inativos está habilitado.
+Cada agregado em seus sistemas ONTAP locais tem duas configurações que você pode ajustar: o limite de preenchimento de camadas e se o relatório de dados inativos está habilitado.
 
 Limiar de plenitude de estratificação:: Definir o limite para um número menor reduz a quantidade de dados que precisam ser armazenados na camada de desempenho antes que a hierarquização ocorra.  Isso pode ser útil para grandes agregados que contêm poucos dados ativos.
 +
@@ -198,11 +191,9 @@ TIP: É melhor manter o IDR ativado porque ele ajuda a identificar seus dados in
 
 .Passos
 . Na página *Clusters*, selecione *Configuração avançada* para o cluster selecionado.
-. Na página *Clusters*, selecione *Configuração avançada* para o cluster selecionado.
 +
 image:screenshot_tiering_advanced_setup_button.png["Uma captura de tela mostrando o botão Configuração avançada de um cluster."]
 
-. Na página Configuração avançada, selecione o ícone de menu do agregado e selecione *Modificar agregado*.
 . Na página Configuração avançada, selecione o ícone de menu do agregado e selecione *Modificar agregado*.
 +
 image:screenshot_tiering_modify_aggr.png["Uma captura de tela mostrando a opção Modificar agregado para um agregado."]
@@ -242,7 +233,6 @@ Observe que os botões também aparecem na página Tiering _On-Prem dashboard_ p
 .Passos
 . Em Cloud Tiering, selecione a aba *Clusters*.
 . Para ver quaisquer clusters não descobertos, selecione *Mostrar clusters não descobertos*.
-. Para ver quaisquer clusters não descobertos, selecione *Mostrar clusters não descobertos*.
 +
 image:screenshot_tiering_show_undiscovered_cluster.png["Uma captura de tela mostrando o botão Mostrar clusters não descobertos no Painel de níveis."]
 
@@ -256,7 +246,6 @@ Se suas credenciais do NSS não forem salvas, você será solicitado a adicioná
 image:screenshot_tiering_discover_cluster.png["Uma captura de tela mostrando como descobrir um cluster existente para adicionar ao Console e ao Painel de Hierarquia."]
 
 . Clique em *Descobrir Cluster* para o cluster que você deseja gerenciar por meio do Console e implementar a divisão de dados em camadas.
-. Na página _Detalhes do Cluster_, insira a senha da conta de usuário administrador e selecione *Descobrir*.
 . Na página _Detalhes do Cluster_, insira a senha da conta de usuário administrador e selecione *Descobrir*.
 +
 Observe que o endereço IP de gerenciamento do cluster é preenchido com base nas informações da sua conta NSS.

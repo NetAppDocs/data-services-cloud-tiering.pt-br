@@ -27,7 +27,6 @@ image:screenshot_cloud_performance_test.png["Uma captura de tela dos resultados 
 . No menu de navegação à esquerda, selecione *Mobilidade > Camadas de nuvem*.
 . Na página *Clusters*, selecione o ícone de menu para um cluster e selecione *Teste de desempenho da nuvem*.
 . Revise os detalhes e selecione *Continuar*.
-. Revise os detalhes e selecione *Continuar*.
 . Siga as instruções para fornecer as informações necessárias.
 +
 As informações que você precisa fornecer são as mesmas que você usaria se estivesse configurando camadas no cluster.
@@ -37,7 +36,6 @@ As informações que você precisa fornecer são as mesmas que você usaria se e
 
 .Etapas para um cluster que foi configurado para camadas
 . No menu de navegação à esquerda, selecione *Mobilidade > Camadas de nuvem*.
-. Na página *Clusters*, selecione o ícone de menu para um cluster e selecione *Teste de desempenho da nuvem*.
 . Na página *Clusters*, selecione o ícone de menu para um cluster e selecione *Teste de desempenho da nuvem*.
 . Selecione um nó na lista suspensa.
 . Veja os resultados ou verifique novamente o desempenho.

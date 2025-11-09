@@ -175,16 +175,13 @@ image:screenshot_setup_tiering_onprem.png["Uma captura de tela que mostra a opç
 
 . *Definir nome do armazenamento de objetos*: insira um nome para este armazenamento de objetos.  Ele deve ser exclusivo de qualquer outro armazenamento de objetos que você possa estar usando com agregados neste cluster.
 . *Selecionar Provedor*: Selecione * StorageGRID* e selecione *Continuar*.
-. *Selecionar Provedor*: Selecione * StorageGRID* e selecione *Continuar*.
 . Conclua as etapas nas páginas *Criar armazenamento de objetos*:
 +
 .. *Servidor*: Insira o FQDN do nó do gateway StorageGRID , a porta que o ONTAP deve usar para comunicação HTTPS com o StorageGRID e a chave de acesso e a chave secreta para uma conta que tenha as permissões S3 necessárias.
 .. *Bucket*: adicione um novo bucket ou selecione um bucket existente que comece com o prefixo _fabric-pool_ e selecione *Continuar*.
-.. *Bucket*: adicione um novo bucket ou selecione um bucket existente que comece com o prefixo _fabric-pool_ e selecione *Continuar*.
 +
 O prefixo _fabric-pool_ é necessário porque a política do IAM para o agente permite que a instância execute ações do S3 em buckets nomeados com esse prefixo exato.  Por exemplo, você pode nomear o bucket S3 _fabric-pool-AFF1_, onde AFF1 é o nome do cluster.
 
-.. *Rede de cluster*: Selecione o espaço IP que o ONTAP deve usar para se conectar ao armazenamento de objetos e selecione *Continuar*.
 .. *Rede de cluster*: Selecione o espaço IP que o ONTAP deve usar para se conectar ao armazenamento de objetos e selecione *Continuar*.
 +
 Selecionar o IPspace correto garante que o Cloud Tiering possa configurar uma conexão do ONTAP para o armazenamento de objetos StorageGRID .
@@ -199,15 +196,11 @@ Você também pode definir a largura de banda de rede disponível para carregar 
 ** Para selecionar todos os volumes, marque a caixa na linha de título (image:button_backup_all_volumes.png[""] ) e selecione *Configurar volumes*.
 ** Para selecionar vários volumes, marque a caixa para cada volume (image:button_backup_1_volume.png[""] ) e selecione *Configurar volumes*.
 ** Para selecionar um único volume, selecione a linha (ouimage:screenshot_edit_icon.gif["ícone de lápis de edição"] ícone) para o volume.
-** Para selecionar todos os volumes, marque a caixa na linha de título (image:button_backup_all_volumes.png[""] ) e selecione *Configurar volumes*.
-** Para selecionar vários volumes, marque a caixa para cada volume (image:button_backup_1_volume.png[""] ) e selecione *Configurar volumes*.
-** Para selecionar um único volume, selecione a linha (ouimage:screenshot_edit_icon.gif["ícone de lápis de edição"] ícone) para o volume.
 +
 image:screenshot_tiering_initial_volumes.png["Uma captura de tela que mostra como selecionar um único volume, vários volumes ou todos os volumes, e o botão modificar volumes selecionados."]
 
 
 
-. Na caixa de diálogo _Política de níveis_, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento para os volumes selecionados e selecione *Aplicar*.
 . Na caixa de diálogo _Política de níveis_, selecione uma política de níveis, ajuste opcionalmente os dias de resfriamento para os volumes selecionados e selecione *Aplicar*.
 +
 link:concept-cloud-tiering.html#volume-tiering-policies["Saiba mais sobre políticas de níveis de volume e dias de resfriamento"].

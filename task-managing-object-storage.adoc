@@ -24,7 +24,6 @@ Você pode visualizar todos os armazenamentos de objetos que foram configurados 
 
 .Passos
 . Na página *Clusters*, selecione o ícone de menu para um cluster e selecione *Informações do repositório de objetos*.
-. Na página *Clusters*, selecione o ícone de menu para um cluster e selecione *Informações do repositório de objetos*.
 . Revise os detalhes sobre os armazenamentos de objetos.
 +
 Este exemplo mostra um armazenamento de objetos do Amazon S3 e do Azure Blob anexados a diferentes agregados em um cluster.
@@ -42,8 +41,6 @@ Você pode adicionar um novo armazenamento de objetos para agregados no seu clus
 
 .Passos
 . Na página *Clusters*, selecione o ícone de menu para um cluster e selecione *Informações do repositório de objetos*.
-. Na página *Clusters*, selecione o ícone de menu para um cluster e selecione *Informações do repositório de objetos*.
-. Na página Informações do Object Store, selecione *Criar novo Object Store*.
 . Na página Informações do Object Store, selecione *Criar novo Object Store*.
 +
 image:screenshot_tiering_object_store_create_button.png["Uma captura de tela mostrando o botão Criar novo armazenamento de objetos para criar um novo armazenamento de objetos."]

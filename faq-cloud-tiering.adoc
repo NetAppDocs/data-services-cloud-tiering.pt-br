@@ -158,10 +158,6 @@ A melhor maneira de estimar quanto um provedor de nuvem cobrará pela hospedagem
 
 === Há alguma cobrança extra pelos provedores de nuvem para leitura/recuperação de dados do armazenamento de objetos para o armazenamento local?
 
-
-
-=== Há alguma cobrança extra pelos provedores de nuvem para leitura/recuperação de dados do armazenamento de objetos para o armazenamento local?
-
 Sim. Verificar https://aws.amazon.com/s3/pricing/["Preços do Amazon S3"] , https://azure.microsoft.com/en-us/pricing/details/storage/blobs/["Preço do Block Blob"] , e https://cloud.google.com/storage/pricing["Preços de armazenamento em nuvem"] para preços adicionais incorridos com leitura/recuperação de dados.
 
 
