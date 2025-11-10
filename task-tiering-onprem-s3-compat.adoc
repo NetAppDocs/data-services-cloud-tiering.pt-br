@@ -114,6 +114,7 @@ https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["A
 
 O armazenamento de objetos compatível com S3 deve atender aos seguintes requisitos.
 
+[[preparing-s3-compatible-object-storage]]
 Credenciais S3:: Ao configurar o armazenamento em camadas para objetos compatíveis com S3, você será solicitado a criar um bucket S3 ou selecionar um bucket S3 existente.  Você precisa fornecer ao Cloud Tiering uma chave de acesso S3 e uma chave secreta.  O Cloud Tiering usa as chaves para acessar seu bucket.
 +
 --

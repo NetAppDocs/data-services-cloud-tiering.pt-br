@@ -105,6 +105,9 @@ https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["A
 O StorageGRID deve atender aos seguintes requisitos.
 
 Versões do StorageGRID suportadas:: O StorageGRID 10.3 e versões posteriores são suportados.
+
+
+[[preparing-storagegrid]]
 Credenciais S3:: Ao configurar o hierarquização para o StorageGRID, você precisa fornecer ao Cloud Tiering uma chave de acesso S3 e uma chave secreta.  O Cloud Tiering usa as chaves para acessar seus buckets.
 +
 --

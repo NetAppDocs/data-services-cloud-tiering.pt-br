@@ -123,7 +123,7 @@ https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["A
 
 === Verifique se você tem as permissões de agente necessárias
 
-Se você criou o agente do Console usando a versão 3.9.25 ou superior, está tudo pronto.  A função personalizada que fornece as permissões que um agente precisa para gerenciar recursos e processos dentro da sua rede do Azure será configurada por padrão.  Veja o https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.html#custom-role-permissions["permissões de função personalizadas necessárias"^] e o https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.html#cloud-tiering["permissões específicas necessárias para Cloud Tiering"^] .
+Se você criou o agente do Console usando a versão 3.9.25 ou superior, está tudo pronto. A função personalizada que fornece as permissões que um agente precisa para gerenciar recursos e processos dentro da sua rede do Azure será configurada por padrão. Veja o https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-azure.html["permissões de função personalizadas necessárias"^] e o https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-azure.html#tiering["permissões específicas necessárias para Cloud Tiering"^] .
 
 Se você criou o agente usando uma versão anterior, precisará editar a lista de permissões da conta do Azure para adicionar quaisquer permissões ausentes.
 

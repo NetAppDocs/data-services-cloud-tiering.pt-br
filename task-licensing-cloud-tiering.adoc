@@ -183,7 +183,7 @@ Os clusters ONTAP nas seguintes configurações podem usar licenças de Cloud Ti
 
 === Processo para clusters existentes que possuem uma licença FabricPool
 
-Quando vocêlink:task-managing-tiering.html#discovering-additional-clusters-from-bluexp-tiering["descubra qualquer um desses tipos especiais de cluster no Cloud Tiering"] O Cloud Tiering reconhece a licença do FabricPool e adiciona a licença ao Console.  Esses clusters continuarão hierarquizando dados como de costume.  Quando a licença do FabricPool expirar, você precisará comprar uma licença do Cloud Tiering.
+Quando vocêlink:task-managing-tiering.html#discovering-additional-clusters-from-cloud-tiering["descubra qualquer um desses tipos especiais de cluster no Cloud Tiering"] O Cloud Tiering reconhece a licença do FabricPool e adiciona a licença ao Console. Esses clusters continuarão hierarquizando dados como de costume. Quando a licença do FabricPool expirar, você precisará comprar uma licença do Cloud Tiering.
 
 
 
@@ -207,9 +207,9 @@ Observe que, como os dados são hierarquizados em dois locais diferentes de arma
 +
 Não configure a hierarquização neste momento.
 
-. link:task-licensing-cloud-tiering.html#use-a-bluexp-tiering-byol-license["Adquira uma licença de Cloud Tiering"]para a capacidade necessária para o novo cluster ou clusters.
+. link:task-licensing-cloud-tiering.html#use-a-cloud-tiering-byol-license["Adquira uma licença de Cloud Tiering"]para a capacidade necessária para o novo cluster ou clusters.
 . No Console<<licenses,adicione a licença à carteira digital>> [adicione a licença].
-. Em Cloud Tiering,link:task-managing-tiering.html#discovering-additional-clusters-from-bluexp-tiering["descubra os novos clusters"] .
+. Em Cloud Tiering,link:task-managing-tiering.html#discovering-additional-clusters-from-cloud-tiering["descubra os novos clusters"] .
 . Na página Clusters, selecioneimage:screenshot_horizontal_more_button.gif["Mais ícone"] para o cluster e selecione *Implantar licença*.
 +
 image:screenshot_tiering_deploy_license.png["Uma captura de tela mostrando como implantar uma licença em camadas em um cluster ONTAP ."]

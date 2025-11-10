@@ -22,7 +22,7 @@ Neste momento, há um evento de hierarquização que aparecerá como uma notific
 
 Camada de dados adicionais do cluster <nome> para armazenamento de objetos para economizar espaço de armazenamento
 
-Esta notificação é uma "Recomendação" para melhorar a eficiência do sistema e reduzir os custos de armazenamento.  Isso indica que um cluster está hierarquizando menos de 20% de seus dados inativos, incluindo clusters que não estão hierarquizando nenhum dado.  Ele fornece um link para o https://bluexp.netapp.com/cloud-tiering-service-tco["Calculadora de custo total de propriedade e economia de Cloud Tiering"^] para ajudar você a calcular sua economia de custos.
+Esta notificação é uma "Recomendação" para melhorar a eficiência do sistema e reduzir os custos de armazenamento. Isso indica que um cluster está hierarquizando menos de 20% de seus dados inativos, incluindo clusters que não estão hierarquizando nenhum dado. Ele fornece um link para o https://www.netapp.com/data-services/tiering/tco-calculator/["Calculadora de custo total de propriedade e economia de Cloud Tiering"^] para ajudar você a calcular sua economia de custos.
 
 O NetApp Console não envia um e-mail para esta notificação.
 
