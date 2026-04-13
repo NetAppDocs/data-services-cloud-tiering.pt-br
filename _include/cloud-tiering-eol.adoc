@@ -1,20 +1,6 @@
----
-sidebar: sidebar 
-permalink: task-licensing-cloud-tiering.html 
-keywords: subscribe, Fabricpool transition trial, marketplace, subscription, paygo, pay as you go, byol, bring your own license, annual, tiering, cloud tiering, license, cloud tiering 
-summary: NetApp Cloud Tiering não estará mais disponível para compra ou renovação de licença a partir de 26 de abril de 2026. 
----
-= Configurar licenciamento para NetApp Cloud Tiering
-:hardbreaks:
+= 
 :allow-uri-read: 
-:nofooter: 
-:icons: font
-:linkattrs: 
-:imagesdir: ./media/
 
-
-[role="lead"]
-NetApp Cloud Tiering não estará mais disponível para compra ou renovação de licença a partir de 26 de abril de 2026.
 
 [NOTE]
 ====
@@ -29,4 +15,3 @@ NetApp recomenda que os clientes trabalhem com seu representante NetApp para mig
 
 
 ====
-Se você estiver usando o licenciamento Cloud Tiering, não será afetado até que sua licença Cloud Tiering expire ou atinja a capacidade máxima. Entre em contato com a NetApp quando precisar atualizar sua licença, ou antes, para garantir que não haja interrupção na sua capacidade de armazenar dados na nuvem.

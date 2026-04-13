@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-tiering-onprem-overview.html 
-keywords: overview, tiering overview, tiered clusters, clusters enabled for tiering, data tiering overview, cold data, hot data, tiered data, savings, savings opportunities, saving opportunity, policies, cold snapshots, all dp user data, cold user data & snapshots, cold user data and snapshots, all user data, no policy, marketplace subscriptions, clusters associated 
+keywords: overview, tiering overview, tiered clusters, clusters enabled for tiering, data tiering overview, cold data, hot data, tiered data, savings, savings opportunities, saving opportunity, policies, cold snapshots, all dp user data, cold user data and snapshots, cold user data and snapshots, all user data, no policy, marketplace subscriptions, clusters associated 
 summary: O Cloud Tiering fornece uma visão agregada do armazenamento em camadas de dados de cada um dos seus clusters locais.  Esta visão geral fornece uma imagem clara do seu ambiente e permite que você tome as medidas adequadas. 
 ---
 = Obtenha uma visão geral da hierarquização de dados dos seus clusters no NetApp Cloud Tiering

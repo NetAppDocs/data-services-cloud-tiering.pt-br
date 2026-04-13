@@ -13,7 +13,19 @@ summary: O serviço Cloud Tiering da NetApp estende seu data center para a nuvem
 :imagesdir: ./media/
 
 
-[role="lead"]
+[NOTE]
+====
+NetApp Cloud Tiering não estará mais disponível para compra ou renovação de licença a partir de 26 de abril de 2026.
+
+Os clientes atuais podem continuar a usar e receber suporte para NetApp Cloud Tiering até que sua assinatura ou contrato de licença expire. Após a expiração da assinatura, os clientes não terão mais acesso aos recursos ou ao suporte do NetApp Cloud Tiering.
+
+NetApp recomenda que os clientes trabalhem com seu representante NetApp para migrar suas licenças de tiering existentes para licenças ONTAP FabricPool, que fornecem a funcionalidade de tiering de dados no ONTAP. Consulte link:https://docs.netapp.com/us-en/ontap/fabricpool/install-license-aws-azure-ibm-task.html["Instale uma licença FabricPool em um cluster ONTAP"] para obter mais informações sobre como configurar o tiering de dados no ONTAP usando FabricPool.
+
+* link:https://go.digital.netapp.com/rs/683-HWH-936/images/Cloud-Tiering-EOA-Notice2.pdf?version=0&mkt_tok=NjgzLUhXSC05MzYAAAGgvTOT_9L2PauNXYE0fOs0RIz8KK2q5Jb6sg8Yv-97NNJ53ceAab9UAqpKOrAvByxsOWqhIQHNCHgFfM0q3TI["NetApp Cloud Tiering Aviso de Fim de Disponibilidade"]
+* link:https://go.digital.netapp.com/rs/683-HWH-936/images/Cloud-Tiering-EOA-FAQ-v3.pdf?version=0&mkt_tok=NjgzLUhXSC05MzYAAAGgvTOT_rplJe_ZtlY4PQAQRQlewsDa0W4JR55muT0KCThR46zI7-uOhIYfVsxODDKFrnYYvy5uZzvhEKHOwBI["NetApp Cloud Tiering Perguntas frequentes sobre o fim da disponibilidade"]
+
+
+====
 O NetApp Cloud Tiering estende seu data center para a nuvem, hierarquizando automaticamente dados inativos de clusters ONTAP locais para o armazenamento de objetos.  Isso libera espaço valioso no cluster para mais cargas de trabalho, sem fazer alterações na camada de aplicativo.  O Cloud Tiering pode reduzir custos no seu data center e permite que você mude de um modelo CAPEX para um modelo OPEX.
 
 O Cloud Tiering aproveita os recursos do _FabricPool_.  FabricPool é uma tecnologia NetApp Data Fabric que permite a hierarquização automatizada de dados para armazenamento de objetos de baixo custo.  Os dados ativos (quentes) permanecem na camada local (agregados ONTAP locais), enquanto os dados inativos (frios) são movidos para a camada de nuvem — tudo isso preservando a eficiência dos dados ONTAP .
@@ -70,7 +82,7 @@ Você pode hierarquizar dados inativos de um sistema ONTAP local para os seguint
 * Armazenamento de objetos compatível com S3 (por exemplo, MinIO)
 
 
-As licenças de Cloud Tiering também podem ser compartilhadas com seus clusters que estão hierarquizando dados para o IBM Cloud Object Storage. A configuração do FabricPool deve ser definida usando o System Manager ou o ONTAP CLI, maslink:task-licensing-cloud-tiering.html#apply-cloud-tiering-licenses-to-clusters-in-special-configurations["o licenciamento para esse tipo de configuração é concluído usando Cloud Tiering."]
+As licenças do Cloud Tiering também podem ser compartilhadas com seus clusters que estão armazenando dados em camadas no IBM Cloud Object Storage. A configuração do FabricPool deve ser feita usando o System Manager ou a CLI do ONTAP, mas link:task-licensing-cloud-tiering.html["o licenciamento para esse tipo de configuração é concluído usando Cloud Tiering."]
 
 
 NOTE: Você pode hierarquizar dados de volumes NAS para a nuvem pública ou para nuvens privadas, como o StorageGRID.  Ao hierarquizar dados acessados ​​por protocolos SAN, a NetApp recomenda usar nuvens privadas devido a considerações de conectividade.
@@ -131,7 +143,7 @@ Por exemplo, se você tiver uma licença de 10 TB, toda a capacidade além dos 1
 
 Você não será cobrado pela sua assinatura pré-paga durante o teste gratuito ou se não tiver excedido sua licença BYOL do Cloud Tiering.
 
-link:task-licensing-cloud-tiering.html#use-a-cloud-tiering-paygo-subscription["Aprenda a configurar uma assinatura pré-paga"].
+link:task-licensing-cloud-tiering.html["Aprenda a configurar uma assinatura pré-paga"].
 
 
 
@@ -139,7 +151,7 @@ link:task-licensing-cloud-tiering.html#use-a-cloud-tiering-paygo-subscription["A
 
 O Cloud Tiering oferece um contrato anual ao hierarquizar dados inativos no Amazon S3 ou no Azure.  Está disponível em prazos de 1, 2 ou 3 anos.
 
-Contratos anuais não são suportados atualmente ao migrar para o Google Cloud.
+Atualmente, contratos anuais não são suportados ao migrar para o Google Cloud.
 
 
 
@@ -147,12 +159,12 @@ Contratos anuais não são suportados atualmente ao migrar para o Google Cloud.
 
 Traga sua própria licença comprando uma licença *Cloud Tiering* da NetApp (anteriormente conhecida como licença "Cloud Tiering").  Você pode comprar licenças de 1, 2 ou 3 anos e especificar qualquer quantidade de capacidade de camadas (começando com um mínimo de 10 TiB).  A licença BYOL Cloud Tiering é uma licença _flutuante_ que você pode usar em vários clusters ONTAP locais.  A capacidade total de camadas que você define na sua licença de Cloud Tiering pode ser usada por todos os seus clusters locais.
 
-Depois de comprar uma licença do Cloud Tiering, você precisará adicioná-la ao NetApp Console. link:task-licensing-cloud-tiering.html#use-a-cloud-tiering-byol-license["Veja como usar uma licença BYOL do Cloud Tiering"].
+Após adquirir uma licença do Cloud Tiering, você precisará adicioná-la ao NetApp Console. link:task-licensing-cloud-tiering.html["Veja como usar uma licença BYOL do Cloud Tiering"].
 
 Conforme mencionado acima, recomendamos que você configure uma assinatura paga conforme o uso, mesmo que tenha adquirido uma licença BYOL.
 
 
-NOTE: A partir de agosto de 2021, a antiga licença * FabricPool* foi substituída pela licença * Cloud Tiering *. link:task-licensing-cloud-tiering.html#cloud-tiering-byol-licensing-starting-in-2021["Saiba mais sobre como a licença Cloud Tiering é diferente da licença FabricPool"].
+NOTE: A partir de agosto de 2021, a antiga licença *FabricPool* foi substituída pela licença *Cloud Tiering*. link:task-licensing-cloud-tiering.html["Saiba mais sobre como a licença Cloud Tiering é diferente da licença FabricPool"].
 
 
 

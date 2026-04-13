@@ -33,9 +33,6 @@ Escolha se você conectará seu cluster ONTAP local diretamente ao AWS S3 pela I
 [role="quick-margin-para"]
 Se você já tiver o agente do Console implantado na sua VPC da AWS ou em suas instalações, está tudo pronto.  Caso contrário, você precisará criar o agente para hierarquizar os dados do ONTAP no armazenamento AWS S3.  Você também precisará personalizar as configurações de rede do agente para que ele possa se conectar ao AWS S3.
 
-[role="quick-margin-para"]
-<<Prepare your agent,Veja como criar um agente e como definir as configurações de rede necessárias.>>
-
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]Prepare seu cluster ONTAP local
 [role="quick-margin-para"]
 Descubra seu cluster ONTAP no NetApp Console, verifique se o cluster atende aos requisitos mínimos e personalize as configurações de rede para que o cluster possa se conectar ao AWS S3.
