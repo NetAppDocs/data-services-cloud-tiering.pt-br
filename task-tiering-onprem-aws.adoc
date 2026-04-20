@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-tiering-onprem-aws.html 
-keywords: data tiering, fabricpool, cloud tiering, tiering cold data, tiering inactive data, tiering aff, tiering fas, tiering ontap, tiering volumes, tier data, tier cold data, tier fas, tier aff, tier ontap, aws, amazon, s3 
+keywords: data tiering, fabricpool, cloud tiering, tiering cold data, tiering inactive data, tiering aff, tiering fas, tiering ontap, tiering volumes, tier data, tier cold data, tier fas, tier aff, tier ontap, aws, amazon, s3 tiering 
 summary: Libere espaço em seus clusters ONTAP locais hierarquizando dados inativos no Amazon S3. 
 ---
 = Dados em camadas de clusters ONTAP locais para o Amazon S3 no NetApp Cloud Tiering
